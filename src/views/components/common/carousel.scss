@@ -1,0 +1,98 @@
+.carousel{
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+    .wrapper{
+        width: 100%;
+        overflow: visible;
+    }
+    .slider_container {
+        display: flex;
+        // flex-shrink: 0;
+        .slider {
+            text-align: center;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    
+    %arrows {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+
+        &:hover {
+            color: black;
+        }
+
+        &:click {
+            background-color: none;
+        }
+    }
+
+    .next {
+        @extend %arrows;
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .prev {
+        @extend %arrows;
+        left: 0;
+    }
+       .controls {
+           position: absolute;
+           left: 0;
+           bottom: 0;
+           text-align: center;
+           width: 100%;
+
+           .dot {
+               cursor: pointer;
+               height: 5px;
+               width: 5px;
+               margin: 0 2px;
+               background-color: #bbb;
+               border-radius: 50%;
+               display: inline-block;
+               transition: background-color 0.6s ease;
+
+               &:hover {
+                   background-color: #717171;
+               }
+               .active {
+                   background-color: #717171;
+               }
+           }
+
+           .active {
+               background-color: #717171;
+           }
+       }
+       %mask{
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        top: 0%;
+       }
+       .l_mask{
+         @extend %mask;
+         left: 0;
+       }
+       .r_mask{
+         @extend %mask;
+         right: 0;
+       }
+}

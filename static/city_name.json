@@ -1,0 +1,225 @@
+{
+    "Hokkaido Area": {
+        "cn_name": "北海道地区",
+        "city": [
+            {
+                "en_name": "Hokkaido",
+                "cn_name": "北海道"
+            }
+        ]
+    },
+    "Tohoku Area": {
+        "cn_name": "东北地区",
+        "city": [
+            {
+                "en_name": "Iwate",
+                "cn_name": "岩手"
+            },
+            {
+                "en_name": "Miyagi",
+                "cn_name": "宫城"
+            },
+            {
+                "en_name": "Akita",
+                "cn_name": "秋田"
+            },
+            {
+                "en_name": "Yamagata",
+                "cn_name": "山形"
+            },
+            {
+                "en_name": "Fukushima",
+                "cn_name": "福岛"
+            },
+            {
+                "en_name": "Aomori",
+                "cn_name": "青森"
+            }
+        ]
+    },
+    "Kanto Area": {
+        "cn_name": "关东地区",
+        "city": [
+            {
+                "en_name": "Ibaraki",
+                "cn_name": "茨城"
+            },
+            {
+                "en_name": "Chiba",
+                "cn_name": "千叶"
+            },
+            {
+                "en_name": "Tokyo",
+                "cn_name": "东京"
+            },
+            {
+                "en_name": "Kanagawa",
+                "cn_name": "神奈川"
+            },
+            {
+                "en_name": "Gunma",
+                "cn_name": "群马"
+            },
+            {
+                "en_name": "Tochigi",
+                "cn_name": "栃木"
+            },
+            {
+                "en_name": "Saitama",
+                "cn_name": "埼玉"
+            }
+        ]
+    },
+    "Chubu Area": {
+        "cn_name": "中部地区",
+        "city": [
+            {
+                "en_name": "Niigata",
+                "cn_name": "新潟"
+            },
+            {
+                "en_name": "Toyama",
+                "cn_name": "富山"
+            },
+            {
+                "en_name": "Ishikawa",
+                "cn_name": "石川"
+            },
+            {
+                "en_name": "Fukui",
+                "cn_name": "福井"
+            },
+            {
+                "en_name": "Yamanashi",
+                "cn_name": "山梨"
+            },
+            {
+                "en_name": "Nagano",
+                "cn_name": "长野"
+            },
+            {
+                "en_name": "Gifu",
+                "cn_name": "岐阜"
+            },
+            {
+                "en_name": "Shizuoka",
+                "cn_name": "静冈"
+            },
+            {
+                "en_name": "Aichi",
+                "cn_name": "爱知"
+            }
+        ]
+    },
+    "Kansai Area": {
+        "cn_name": "关西地区",
+        "city": [
+            {
+                "en_name": "Mie",
+                "cn_name": "三重"
+            },
+            {
+                "en_name": "Shiga",
+                "cn_name": "滋贺"
+            },
+            {
+                "en_name": "Kyoto",
+                "cn_name": "京都"
+            },
+            {
+                "en_name": "Osaka",
+                "cn_name": "大阪"
+            },
+            {
+                "en_name": "Nara",
+                "cn_name": "奈良"
+            },
+            {
+                "en_name": "Hyogo",
+                "cn_name": "兵库"
+            },
+            {
+                "en_name": "Wakayama",
+                "cn_name": "和歌山"
+            }
+        ]
+    },
+    "Chugoku & Shikoku Area": {
+        "cn_name": "中国・四国地区",
+        "city": [
+            {
+                "en_name": "Tottori",
+                "cn_name": "鸟取"
+            },
+            {
+                "en_name": "Shimane",
+                "cn_name": "岛根"
+            },
+            {
+                "en_name": "Okayama",
+                "cn_name": "冈山"
+            },
+            {
+                "en_name": "Hiroshima",
+                "cn_name": "广岛"
+            },
+            {
+                "en_name": "Yamaguchi",
+                "cn_name": "山口"
+            },
+            {
+                "en_name": "Tokushima",
+                "cn_name": "德岛"
+            },
+            {
+                "en_name": "Kagawa",
+                "cn_name": "香川"
+            },
+            {
+                "en_name": "Ehime",
+                "cn_name": "爱媛"
+            },
+            {
+                "en_name": "Kochi",
+                "cn_name": "高知"
+            }
+        ]
+    },
+    "Kyushu & Okinawa Area": {
+        "cn_name": "九州・冲绳地区",
+        "city": [
+            {
+                "en_name": "Fukuoka",
+                "cn_name": "福冈"
+            },
+            {
+                "en_name": "Saga",
+                "cn_name": "佐贺"
+            },
+            {
+                "en_name": "Nagasaki",
+                "cn_name": "长崎"
+            },
+            {
+                "en_name": "Kumamoto",
+                "cn_name": "熊本"
+            },
+            {
+                "en_name": "Oita",
+                "cn_name": "大分"
+            },
+            {
+                "en_name": "Miyazaki",
+                "cn_name": "宫崎"
+            },
+            {
+                "en_name": "Kagoshima",
+                "cn_name": "鹿儿岛"
+            },
+            {
+                "en_name": "Okinawa",
+                "cn_name": "冲绳"
+            }
+        ]
+    }
+}
