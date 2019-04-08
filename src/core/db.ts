@@ -10,7 +10,7 @@ export class DB {
     constructor() {
         this.protocol = 'http'
         this.host = '68.168.136.230';   // for build
-        this.host = '127.0.0.1';   // for dev
+        //this.host = '127.0.0.1';   // for dev
         this.port = 8000;
     }
     getStaticURL() {
