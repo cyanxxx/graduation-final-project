@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function commonConfig(devMode) {
     return {
@@ -13,11 +14,11 @@ function commonConfig(devMode) {
             polyfill: 'babel-polyfill', // for ie8
             app: './src/index.tsx',
             // app: './src/test/index.tsx', // only for webpack test
-            vendor: [
-                'react',
-                'react-dom',
-                // 'react-router-dom',
-            ],
+            // vendor: [
+            //     'react',
+            //     'react-dom',
+            //     'react-router-dom',
+            // ],
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
@@ -29,7 +30,10 @@ function commonConfig(devMode) {
             extensions: ['.ts', '.tsx', '.js', '.json'],
             modules: ['node_modules'],
             alias: {
-                '@': path.resolve(__dirname,'static')
+                '@': path.resolve(__dirname, 'static'),
+                'DATA': path.resolve(__dirname,'src/config/api'),
+                'BULMA': path.resolve(__dirname,'node_modules/bulma'),
+                'FONT': path.resolve(__dirname,'static/font.js')
             }
         },
         module: {
@@ -55,13 +59,14 @@ function commonConfig(devMode) {
                 },
                 {
                     test: /\.scss$/, use: [
-                        {
+                        devMode ? {
                             loader: 'style-loader', options: {
                                 singleton: true,
                             }
-                        },
+                        } : MiniCssExtractPlugin.loader,
                         {
                             loader: 'css-loader', options: {
+                                minimize: true,
                                 sourceMap: devMode ? true : false,
                             }
                         },
@@ -87,10 +92,34 @@ function commonConfig(devMode) {
                 },
             ]
         },
+        optimization: {
+            runtimeChunk: 'single',
+            splitChunks: {
+                cacheGroups: {
+                    vendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        priority: -10,
+                        chunks: 'all',
+                        name: 'vendors',
+                    },
+                    // 'react-vendor': {
+                    //     test: /react/,
+                    //     priority: 1,
+                    //     chunks: 'initial',
+                    // },
+                    default: {
+                        minChunks: 2,
+                        priority: -20,
+                        reuseExistingChunk: true,
+                    },
+                },
+            },
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 filename: "index.html",
                 template: "index.html",
+                title: "Caching",
                 minify: {
                     collapseWhitespace: true,
                     removeComments: true,
@@ -102,7 +131,7 @@ function commonConfig(devMode) {
 
 const devConfig = {
     mode: 'development',
-    devtool: 'cheap-source-map',
+    devtool: 'source-map',
     module: {
         rules: [
             { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
@@ -111,16 +140,16 @@ const devConfig = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 2333,
+        port: 2563,
         open: true,
         hot: true,
         noInfo: true,
+        progress: true,
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
             "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
         },
-        overlay: true,
         historyApiFallback: true,
     },
     plugins: [
@@ -131,38 +160,6 @@ const devConfig = {
 
 const prodConfig = {
     mode: 'production',
-    optimization: {
-        runtimeChunk: {
-            name: entrypoint => `runtime~${entrypoint.name}`
-        },
-        splitChunks: {
-            chunks: 'async',
-            minSize: 30000,
-            maxSize: 0,
-            minChunks: 1,
-            maxAsyncRequests: 5,
-            maxInitialRequests: 3,
-            automaticNameDelimiter: '~',
-            name: true,
-            cacheGroups: {
-                vendors: {
-                    test: /\/node_modules\//,
-                    priority: -10,
-                    chunks: 'initial',
-                },
-                'react-vendor': {
-                    test: /react/,
-                    priority: 1,
-                    chunks: 'initial',
-                },
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true,
-                },
-            },
-        },
-    },
     plugins: [
         new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
@@ -174,6 +171,13 @@ const prodConfig = {
             root: path.resolve(__dirname),
             verbose: true,
         }),
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname, 'static'),
+                to: './static',
+                ignore: ['.*']
+            }
+        ])
     ]
 };
 

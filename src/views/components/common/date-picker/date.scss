@@ -1,0 +1,76 @@
+.date{
+    background: #fff;
+}
+.header{
+    display: flex;
+    div{
+        flex: 80%;
+        text-align: center;
+    }
+    div:first-child,div:nth-of-type(2),div:last-child,div:nth-last-child(2){
+        flex: 5%;
+    }
+}
+.body{
+    .week{
+        display: flex;
+        flex-wrap: wrap;
+        div{
+            flex: 14.28%;
+            padding: 5px 0;
+            text-align: center;
+            &.invalid{
+                background: #eee;
+            }
+            &.start{
+                background: #00d1b2;
+                border-radius: 30% 0 0 30% / 50% 0 0 50%;
+                button{
+                    box-shadow: 0 0.2rem 0.2rem rgba(10, 10, 10, .1);
+                    background: #fff;
+                    border: .1rem solid #00d1b2;
+                }
+                
+            }
+            &.during{
+                background: #00d1b2;
+                button{
+                    color: #fff;
+                }
+            }
+            &.end{
+                background: #00d1b2;
+                border-radius: 0 30% 30% 0 / 0 50% 50% 0;
+                button {
+                    box-shadow: 0 0.2rem 0.2rem rgba(10, 10, 10, .1);
+                    background: #fff;
+                    border: .1rem solid #00d1b2;
+                }
+            }
+            button{
+                border-radius: 50%;
+                cursor: pointer;
+                height: 1.6rem;
+                width: 1.6rem;
+                outline: 0;
+                padding: 0;
+                border: .1rem solid transparent;
+                background: transparent;
+                &.current{
+                    background: #fafafa;
+                }
+            }
+        }
+    }
+    .months,.years{
+        display: flex;
+         flex-wrap: wrap;
+         div {
+             flex: 25%;
+             padding: 16px 0;
+         }
+    }
+}
+.center{
+    text-align: center;
+}

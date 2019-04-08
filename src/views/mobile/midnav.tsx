@@ -15,9 +15,9 @@ interface State {
 export class Midnav extends React.Component<Props, State> {
     public state = {
         spec: [
-            { to: ROUTE.home, label: '机票', icon: 'jipiao1', color: '#118fe4'},
-            { to: ROUTE.collections, label: '住宿', icon: 'zhusu2', color: '#ffaa31' },
-            { to: ROUTE.users, label: '饮食', icon: 'canting2', color: '#f35d5c'},
+            { to: ROUTE.scenery, label: '景点', icon: 'jingdian', color: '#118fe4'},
+            { to: ROUTE.travels, label: '路线', icon: 'zhusu2', color: '#ffaa31' },
+            { to: ROUTE.restaurant, label: '饮食', icon: 'canting2', color: '#f35d5c'},
         ],
     };
 

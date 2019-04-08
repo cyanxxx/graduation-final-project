@@ -16,7 +16,7 @@ export class Ad extends React.Component<Props, State> {
     public state = {
         spec: [
             { to: ROUTE.home, label: '翻译', icon: 'fanyi', color: '#118fe4'},
-            { to: ROUTE.collections, label: '公交', icon: 'gongjiao', color: '#118fe4' },
+            { to: ROUTE.home, label: '公交', icon: 'gongjiao', color: '#118fe4' },
         ],
     };
 

@@ -1,11 +1,10 @@
 import * as React from 'react'
-//import * as city_json from '../../../static/city_name.json'
-// const city_json = require('../../../../static/city_name.json')
+import { Core } from '../../../core/index';
 const city_json = require('@/city_name.json')
 
 interface Props{
     onChoice: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => Promise<void>,
-    style: React.CSSProperties
+    style: React.CSSProperties,
 }
 
 interface State{
@@ -34,7 +33,6 @@ export default class ChoiceWeather extends React.Component<Props, State> {
     }
     render() {
         const city:json = {...city_json,'cur_location':{'cn_name':'当前位置','city':[{'en_name':'Guangzhou','cn_name':'广州'}]}}
-        console.log(city)
         const area = Object.keys(city)
         const { cur_area } = this.state
         return (

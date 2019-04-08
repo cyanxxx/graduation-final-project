@@ -1,90 +1,146 @@
-// // customize css themes
-// $body-background-color: #f1f1f1;
-// $font: #989898;
-// $side: #32323a;
-// $primary: #1fb5ad;
-
-// @import "~bulma/bulma"
-// .left{
-//     float: left;
-// }
-// .right{
-//     float: right;
-// }
-// %toBFC{
-//     content: '';
-//     display: table;
-   
-// }
-// .clearFix{
-//      *zoom:1;
-//     &:before,&:after{
-//         @extend %toBFC;
-//     }
-//     &:after {
-//         clear: both;
-//     }
-// }
-// // body{
-// //     background-color: $bg;
-// // }
-
-@charset "utf-8";
-
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
-// Set your brand colors
-$purple: #8A4D76;
-$red: #d80000;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
-$panel-tab-border-bottom: 2px solid #dbdbdb;
-$panel-tab-active-border-bottom-color: $red;
-$panel-tab-active-color: $red;
-// Update Bulma's global variables
-$family-sans-serif: "Nunito",
-sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$link: #666;
-
-$widescreen-enabled: false;
-$fullhd-enabled: false;
-
-// Update some of Bulma's component variables
-$body-background-color: #e9e9e9;
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
-
-// Import only what you need from Bulma
-@import "~bulma/bulma";
-html,body{
+@import './_varible.scss';
+html,
+body {
     height: 100%;
 }
-.withLine{
+.withLine {
     border-right: 1px solid #eee;
     margin-right: 10px;
 }
-.withLine:last-child{
-    border:0;
+
+.withLine:last-child {
+    border: 0;
     margin-right: 0;
 }
- .icon-svg{
-     width: 2em;
-     height: 2em;
-     vertical-align: -0.15em;
-     fill: currentColor;
-     overflow: hidden;
- }
-// @import "../node_modules/bulma/sass/utilities/_all.sass";
-// @import "../node_modules/bulma/sass/base/_all.sass";
-// @import "../node_modules/bulma/sass/elements/button.sass";
-// @import "../node_modules/bulma/sass/elements/container.sass";
-// @import "../node_modules/bulma/sass/elements/form.sass";
-// @import "../node_modules/bulma/sass/elements/title.sass";
-// @import "../node_modules/bulma/sass/components/navbar.sass";
-// @import "../node_modules/bulma/sass/layout/hero.sass";
-// @import "../node_modules/bulma/sass/layout/section.sass";
+
+.icon-svg {
+    width: 2em;
+    height: 2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.tag {
+    cursor: pointer;
+}
+
+%overflow-p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.info p {
+    @extend %overflow-p;
+}
+
+.icon-p {
+    vertical-align: middle;
+    cursor: pointer;
+    flex: 1 1 auto;
+
+    .icon-svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    &:after {
+        display: inline-block;
+        content: '';
+        height: 100%;
+        vertical-align: middle;
+        width: 0;
+    }
+}
+
+.menu:hover {
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5), 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
+}
+
+.search {
+    margin-bottom: 10px;
+}
+
+.is-left {
+    color: #dbdbdb;
+    height: 2.25em;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.25em;
+    z-index: 4;
+}
+.alert-box{
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 300px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.32));
+}
+.hiddle {
+    visibility: hidden;
+}
+
+.top {
+    display: flex;
+
+    div {
+        flex: 1 1 0;
+    }
+
+    margin-bottom: 10px;
+}
+
+.menuBox {
+    display: flex;
+
+    .lm,
+    .rd {
+        overflow: auto;
+        max-height: 30vh;
+    }
+
+    .sort {
+        cursor: pointer;
+        box-sizing: border-box;
+        border-left: 5px solid transparent;
+        padding: 10px 5px;
+
+        &.active {
+            border-left: 5px solid $link-bg;
+            background: #eee;
+            color: $link-bg;
+        }
+    }
+
+    .detailSort {
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    div {
+        flex: 1;
+    }
+}
+.center {
+    position: relative;
+
+    .middle {
+        position: absolute;
+        left: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+    }
+}

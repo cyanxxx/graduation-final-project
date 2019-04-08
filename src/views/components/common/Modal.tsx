@@ -2,7 +2,10 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 interface Props{
     render: boolean,
-    close: any
+    pannelHandle: any,
+    children: JSX.Element,
+    title: string,
+    footer?: JSX.Element
 }
 interface State{
    
@@ -12,9 +15,6 @@ export default class Modal extends React.Component<Props, State> {
     constructor(props) {
         super(props)
         this.modalTarget = document.createElement('div')
-        this.state ={
-            render: false
-        }
     }
     componentDidMount() {
         document.body.appendChild(this.modalTarget);
@@ -22,22 +22,28 @@ export default class Modal extends React.Component<Props, State> {
     componentWillUnmount() {
         document.body.removeChild(this.modalTarget);
     }
+    renderFooter() {
+        return(
+            <footer className="modal-card-foot">
+                <button className="button is-success" onClick={() => this.props.pannelHandle(false)}>确定</button>
+                <button className="button" onClick={() => this.props.pannelHandle(false)}>取消</button>
+            </footer>
+        )
+    }
     render() {
+        const { title,footer } = this.props
         return this.props.render && ReactDOM.createPortal(
             <div className='modal is-active'>
                 <div className="modal-background"></div>
                 <div className="modal-card">
                     <header className="modal-card-head">
-                        <p className="modal-card-title">Modal title</p>
-                        <button className="delete" aria-label="close" onClick={this.props.close}></button>
+                        <p className="modal-card-title">{title}</p>
+                        <button className="delete" aria-label="close" onClick={() => this.props.pannelHandle(false)}></button>
                     </header>
                     <section className="modal-card-body">
                         {this.props.children}
                     </section>
-                    <footer className="modal-card-foot">
-                        <button className="button is-success">Save changes</button>
-                        <button className="button">Cancel</button>
-                    </footer>
+                    {footer && this.renderFooter()}
                 </div>
             </div>,
             this.modalTarget

@@ -3,18 +3,17 @@ import Topbar from './topbar'
 import Carousel from '../../components/common/Carousel'
 import { Midnav } from '../midnav'
 import { Ad } from './ad'
-import Location from './loaction'
 import { Card } from '../../components/common/card'
 import { Core } from '../../../core';
-import Notify from './notify'
-interface Props {
-  core: Core;
-}
+import ResRecomand from '../../components/restaurant/recomand';
+import SceRecomand from '../../components/scenery/recomand';
+import Scenery from '../../components/scenery/item';
+import { componentProps } from '../../../config/route';
 
 interface State {
 }
-export default class index extends Component<Props,State> {
-  constructor(props:Props){
+export default class index extends Component<componentProps,State> {
+  constructor(props: componentProps){
     super(props)
   }
   render() {
@@ -27,18 +26,20 @@ export default class index extends Component<Props,State> {
     return (
       <div>
         <Topbar core={this.props.core}></Topbar>
-        <Carousel data={data} speed={500} interval={5000} step={0}></Carousel>
+        <Carousel data={data} speed={500} interval={5000} step={0} windowResizeEvent={core.windowResizeEvent} windowVisibleEvent={core.windowVisibleEvent}></Carousel>
         <div style={{margin:10}}>
           <Midnav></Midnav>
         </div>
           
         <Card>
-          <Notify core={core}></Notify>
+          <ResRecomand core={this.props.core}></ResRecomand>
         </Card>
         <Card>
-          <Ad></Ad>
-        </Card>  
-       
+          <SceRecomand core={this.props.core}></SceRecomand>
+        </Card>
+          <Card>
+            <Ad></Ad>
+          </Card>
       </div>
     )
   }

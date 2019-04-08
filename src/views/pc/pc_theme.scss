@@ -1,0 +1,89 @@
+// // customize css themes
+// $body-background-color: #f1f1f1;
+// $font: #989898;
+// $side: #32323a;
+// $primary: #1fb5ad;
+
+// @import "~bulma/bulma"
+// .left{
+//     float: left;
+// }
+// .right{
+//     float: right;
+// }
+// %toBFC{
+//     content: '';
+//     display: table;
+   
+// }
+// .clearFix{
+//      *zoom:1;
+//     &:before,&:after{
+//         @extend %toBFC;
+//     }
+//     &:after {
+//         clear: both;
+//     }
+// }
+// // body{
+// //     background-color: $bg;
+// // }
+
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Set your brand colors
+
+$red: #d80000;
+
+
+@import '../../_varible';
+// Update Bulma's global variables
+$family-sans-serif: "Nunito",sans-serif;
+$grey-light: $beige-light;
+$primary-color: $link-bg;
+
+$modal-content-width: 960px;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+$navbar-item-hover-background-color: $link-bg;
+$navbar-background-color: rgb(212, 69, 29);
+$navbar-tab-active-color: transparent;
+
+$body-background-color: #e9e9e9;
+
+$control-border-width: 2px;
+// $input-border-color: transparent;
+$input-shadow: none;
+$pagination-current-background-color: $link-bg;
+$pagination-current-border-color: $link-bg;
+
+// Import only what you need from Bulma
+@import "~bulma/bulma";
+.navbar-item{
+    // @media screen and (min-width : 1087px) {
+    //     &:first-child {
+    //         padding-left: 0;
+    //     }
+
+    //     &:last-child {
+    //         padding-right: 0;
+    //     }
+    // }
+    
+}
+// @import "BULMA/sass/utilities/_all.sass";
+// @import "BULMA/sass/base/_all.sass";
+// @import "BULMA/sass/elements/button.sass";
+// @import "../node_modules/bulma/sass/elements/container.sass";
+// @import "BULMA/sass/elements/form.sass";
+// @import "BULMA/sass/components/pagination.sass";
+// @import "BULMA/sass/components/modal.sass";
+// @import "BULMA/sass/components/card.sass";
+// @import "BULMA/sass/components/panel.sass";
+// @import "BULMA/sass/components/tabs.sass";
+// @import "BULMA/sass/components/navbar.sass";
+// @import "../node_modules/bulma/sass/layout/hero.sass";
+// @import "../node_modules/bulma/sass/layout/section.sass";

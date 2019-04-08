@@ -4,17 +4,19 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "lib": ["dom", "es6", "es2015", "es5", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "outDir": "dist",
-    "rootDirs": ["src", "stories"],
-    "plugins": [{
-      "name": "tslint-language-service"
-    }],
+    "rootDirs": ["src", "stories","static"],
+    "plugins": [
+      {
+        "name": "tslint-language-service"
+      }
+    ],
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
@@ -23,9 +25,9 @@
     "esModuleInterop": true
   },
   "paths": {
-    "*": [
-      "./types/*"
-    ]
+      "*": [
+        "./types/*"
+      ]
   },
   "include": [
     "src/**/*",

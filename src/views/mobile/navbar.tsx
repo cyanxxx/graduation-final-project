@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { ROUTE } from '../../config/route';
 
 interface Props {
-  
+  static: boolean,
+  spec: LinkSpec[],
+  style?: React.CSSProperties
 }
 
 type LinkSpec = { to: string, label: string, icon?: string };
@@ -13,13 +15,6 @@ interface State {
 }
 
 export class Navbar extends React.Component<Props, State> {
-  public state = {
-    spec: [
-      { to: ROUTE.home, label: '主页' },
-      { to: ROUTE.collections, label: '收藏' },
-      { to: ROUTE.users, label: '个人' },
-    ],
-  };
 
   public handleChange = (ev, value) => {
   }
@@ -28,6 +23,8 @@ export class Navbar extends React.Component<Props, State> {
     //todo: find icons here
     return <Link style={{
       flex: 1,
+      justifyContent: 'center',
+     
     }}
       key={i}
       to={spec.to}
@@ -37,13 +34,13 @@ export class Navbar extends React.Component<Props, State> {
   }
 
   public render = () => {
-    return <nav style={{
+    return <nav style={Object.assign({
       display: 'flex',
       textAlign: 'center',
       boxShadow: '0px -1px 2px rgba(0, 0, 0, 0.2)',
-    }}
-      className="navbar is-fixed-bottom">
-      {this.state.spec.map(this.renderLinks)}
+    },this.props.style)}
+      className={`navbar ${this.props.static?' is-fixed-bottom': 'is-fixed-top'}`}>
+      {this.props.spec.map(this.renderLinks)}
     </nav>;
   }
 }

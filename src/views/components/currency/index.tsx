@@ -5,7 +5,7 @@ interface Props{
     core: Core
 }
 interface State{
-    data: APIGet['/search']['res']['data']
+    data: APIGet['/currency']['res']
 }
 
 export default class Currency extends React.Component<Props,State>{
@@ -19,16 +19,16 @@ export default class Currency extends React.Component<Props,State>{
         }
     }
     async componentDidMount(){    
-        const currency = await this.props.core.db.get(`/search`,undefined)
+        const currency = await this.props.core.db.get(`/currency`,undefined)
         console.log(currency)
-        currency && currency.data ? this.setState({ data: currency.data }): null
+        currency? this.setState({ data: currency }): null
         console.log('joi')
         
     }
     render() {
        
         return (
-            <div>当前汇率：{this.state.data.exchangeRate}</div>
+            <div>当前汇率：{this.state.data!.exchangeRate}</div>
         )
     }
    

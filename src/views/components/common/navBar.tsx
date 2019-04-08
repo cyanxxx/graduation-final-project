@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-require('@/font.js');
+
 type LinkSpec = { to: string, label: string, icon?: string, color?: string, background?: string};
 interface Props {
     spec: LinkSpec
@@ -15,7 +15,8 @@ export function LrNav(props:Props) {
             justifyContent: 'space-between',
             padding: '10px',
             background: spec.background,
-            color: spec.background? '#fff':''	
+            color: spec.background? '#fff':'',
+            cursor:'pointer'	
         }}
             to={spec.to}
             className="withLine"
@@ -37,6 +38,7 @@ export function UdNav(props: Props) {
         <Link style={{
             flex: 1,
             padding: '10px',
+            cursor: 'pointer',
             color: spec.background ? '#fff' : ''
         }}
             to={spec.to}

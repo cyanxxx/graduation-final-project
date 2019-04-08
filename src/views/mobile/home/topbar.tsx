@@ -20,15 +20,15 @@ export default class Topbar extends Component<Props,State> {
         display: 'flex',
         justifyContent:'space-between',
         alignItems: 'center',
-        background: '#fff',
         boxShadow: '0 0 30px 0 rgba(0,0,0,.3)',
-        color: '#757763',
+        color: '#f8f6e7',
         position: 'relative',
         fontSize: '0.75rem',
-        padding: '0 10px'
+        padding: '0 10px',
+        background: '#d4451d'
         }}>
         <Currency core={this.props.core}></Currency>
-        <Weather></Weather>
+        <Weather core={this.props.core} simple={true}></Weather>
       </div>
     )
   }
