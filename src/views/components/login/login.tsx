@@ -10,6 +10,7 @@ interface State {
     username:string;
     password:string;
     errMsg:string;
+    password_type:string;
 }
 
 export class Login extends React.Component<Props, State> {
@@ -17,8 +18,16 @@ export class Login extends React.Component<Props, State> {
         username: '',
         password: '',
         errMsg: '',
+        password_type: 'password'
     };
-
+    public showPassword = () =>{
+        console.log(this.state.password_type)
+        if(this.state.password_type === 'password'){
+            this.setState({password_type: ''})
+        }else{
+            this.setState({password_type: 'password' })
+        }
+    }
     public render () {
         return <Card>
             <div className="card-header" style={{boxShadow: 'none'}}><h1 className="title">登录</h1></div>
@@ -37,12 +46,16 @@ export class Login extends React.Component<Props, State> {
                 <br />
 
                 密码:
-                <input
-                    className="input is-normal"
-                    type="password"
-                    value={this.state.password}
-                    onChange={(ev) => this.setState({password:ev.target.value})} />
-
+                <div className="control has-icons-right">
+                    <input
+                        className="input is-normal"
+                        type={this.state.password_type}
+                        value={this.state.password}
+                        onChange={(ev) => this.setState({ password: ev.target.value })} />
+                    <span className="icon is-small is-right" onClick={this.showPassword} style={{ pointerEvents: 'auto'}}>
+                            <i className={`fas ${this.state.password_type === '' ? 'fa-eye': 'fa-eye-slash'}`}></i>
+                        </span>
+                </div>
                 <div style={{
                     marginTop: '1vh',
                     textAlign: 'justify',
