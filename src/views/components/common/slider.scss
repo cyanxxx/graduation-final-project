@@ -18,12 +18,12 @@
     }
 
     .item {
-        width: 150px;
+        width: 9rem;
         padding: 0 5px;
         box-sizing: border-box;
         background: white;
         background-clip: content-box;
-        flex-shrink: 0;
+        flex: 1 0 auto;
         &:first-child{
             padding-left: 10px;
         }

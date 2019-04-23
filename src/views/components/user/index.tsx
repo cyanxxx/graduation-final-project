@@ -10,16 +10,16 @@ interface State {
 export class User extends React.Component<componentProps, State> {
     
     public renderProfile () {
-         return (<div>
+         return (
              <Profile {...this.props}></Profile>
-        </div>);
+        );
     }
     public render () {
         const isLogin = this.props.core.user.isLoggedIn()
-        return (
-            <div>
-                {isLogin ? this.renderProfile() : <Redirect to={{pathname:'./login', state: { from: this.props.location }}}></Redirect>}
-            </div>
-        )
+        if(!isLogin){
+            return <Redirect to={{ pathname: './login', state: { from: this.props.location } }}></Redirect>
+        }else{
+            return this.renderProfile()
+        }
     }
 }

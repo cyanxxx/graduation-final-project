@@ -54,7 +54,7 @@ export default class CurrentWeather extends React.Component<Props, State>{
             <Card>
                 <img style={{ display: 'block' }} src={icon ? icon_src : undefined} alt={description} />
                 <div className="info">
-                    <p onClick={this.switchCity} data-name={city}>{city === 'Guangzhou' ? '广州' : city}</p>
+                    <p style={{cursor: 'pointer'}} onClick={this.switchCity} data-name={city}>{city === 'Guangzhou' ? '广州' : city}</p>
                     <p>当前温度：{temp}°C</p>
                     <p>最低温度：{temp_min}°C</p>
                     <p>最高温度：{temp_max}°C</p>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Topbar from './topbar'
-import Carousel from '../../components/common/Carousel'
+import Carousel from '../../components/common/carousel'
 import { Midnav } from '../midnav'
 import { Ad } from './ad'
 import { Card } from '../../components/common/card'
-import { Core } from '../../../core';
+
 import ResRecomand from '../../components/restaurant/recomand';
 import SceRecomand from '../../components/scenery/recomand';
-import Scenery from '../../components/scenery/item';
+
 import { componentProps } from '../../../config/route';
 
 interface State {

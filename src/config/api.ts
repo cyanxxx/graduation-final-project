@@ -162,8 +162,8 @@ export interface APIGet {
     '/user': APISchema<{
         req: undefined,
         res: {
-            name: string
-        }
+            username: string
+        }[]
     }>,
     '/weather': APISchema<{
         req: {

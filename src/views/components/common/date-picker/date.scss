@@ -32,6 +32,8 @@
                 }
                 
             }
+           
+
             &.during{
                 background: #00d1b2;
                 button{
@@ -47,6 +49,8 @@
                     border: .1rem solid #00d1b2;
                 }
             }
+             
+             
             button{
                 border-radius: 50%;
                 cursor: pointer;
@@ -56,9 +60,11 @@
                 padding: 0;
                 border: .1rem solid transparent;
                 background: transparent;
+                color: inherit;
                 &.current{
                     background: #fafafa;
                 }
+                 
             }
         }
     }
@@ -73,4 +79,10 @@
 }
 .center{
     text-align: center;
+}
+.week div:nth-of-type(7n + 6){
+    color: #0baa0b;
+}
+.week div:nth-of-type(7n + 7) {
+    color: #de072d;
 }

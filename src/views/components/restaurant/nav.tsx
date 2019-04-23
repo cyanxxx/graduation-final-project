@@ -24,7 +24,7 @@ export default class Nav extends React.Component<Props,States>{
     }
 
   pannelHandle = (action: boolean)=>{
-      this.setState((preState) => ({
+      this.setState(() => ({
           openPannel: action
       }));
   }

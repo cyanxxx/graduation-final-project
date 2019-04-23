@@ -4,11 +4,13 @@ import ItemWithIcon from '../common/ItemWithIcon';
 import { Resdata } from '../../../config/api'
 
 import './list.scss'
+import { preload } from '../../../utils/preloading';
+
 export default function list(props: Resdata.scenerySpot) {
 const { title, date, en_title, area, rank, img } = props
   return (
     <div style={{display: 'flex'}}>
-      <div className="img_container" style={{ width: '30vw', height: '30vw', maxWidth: '200px', maxHeight: '120px',backgroundImage: `url(${img}) `, backgroundSize: 'cover' }}>
+      <div className="img_container preload" style={{ width: '30vw', height: '30vw', maxWidth: '200px', maxHeight: '120px' }} data-src={img}>
             <div className="rank">
                   <span>No.{rank}</span>
             </div>

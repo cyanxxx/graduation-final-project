@@ -8,7 +8,7 @@ import Scenery from './scenery'
 import { Core } from '../../core/index';
 import { Layout } from './layout'
 import './moblie_theme.scss'
-import { LoginRoute } from './login';
+import { LoginRoute } from '../components/common/login';
 import { User } from '../components/user';
 import Trip from '../components/trip/create'
 import Trips from '../components/trip/trips'

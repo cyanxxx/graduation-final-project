@@ -144,3 +144,11 @@ body {
         color: #fff;
     }
 }
+.img_container{
+    background-size: cover;
+}
+.preload{
+    background-image: url('../static/loading.gif');
+    background-color: #eee;
+    
+}

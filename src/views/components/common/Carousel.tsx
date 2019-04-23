@@ -86,7 +86,6 @@ export default class Carousel extends React.Component<Props, State>{
         this.forceUpdate();
     }
     componentDidMount() {
-        console.log(this.state, this.maskAble, this.maskWidth )
         this.container!.style.transform = this.maskWidth > 0 ? `translate3d(${this.maskWidth + this.props.width! * -this.state.step}px, 0, 0)` : `translate3d(${ this.width * -this.state.step }px, 0, 0)`
         this.lastOffset  = this.getSlideOffset()
         this.autoplay()
@@ -181,7 +180,6 @@ export default class Carousel extends React.Component<Props, State>{
 
         const step = (dt) => {
             const move = dir * speed;   // 正负值
-            console.log(move, this.lastOffset , to)
             this.lastOffset += move;
             this.translateTo(this.lastOffset);
             if (move * (this.lastOffset - to) > 0) { // 相距-940

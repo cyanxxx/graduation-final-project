@@ -16,7 +16,7 @@ export default function menuItem(props:Props) {
         display: 'flex',
         alignItems: 'stretch',
     }}>
-      <div className="img_container" style={{width:'30vw',maxWidth:160, maxHeight:160,height: '30vw', backgroundImage: `url(${data.thumbnail}) `, backgroundSize: 'cover'}}>
+      <div className="img_container preload" style={{ width: '30vw', maxWidth: 160, maxHeight: 160, height: '30vw' }} data-src={data.thumbnail}>
         
     </div>
       

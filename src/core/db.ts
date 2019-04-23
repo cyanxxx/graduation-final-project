@@ -17,7 +17,7 @@ export class DB {
         return `${this.protocol}://${this.host}:${this.port}/media/` 
     }
     _parseURL(_path:string, obj?:URLQuery) {
-        const path = obj?parsePath(_path, obj): _path
+        const path = obj? parsePath(_path, obj) : _path + '/'
         console.log(path)
         return `${this.protocol}://${this.host}:${this.port}${path}`
     }
@@ -41,7 +41,7 @@ export class DB {
     }
     async post<Path extends keyof APIPost>(_path: Path, data: APIPost[Path]['req']): Promise<APIPost[Path]['res'] | null> {
         try {
-            const url = this._parseURL(_path) + '/';
+            const url = this._parseURL(_path);
             console.log('post: ', url);
             const response = await fetch(url, this.genRequestInit({
                 method: 'POST',

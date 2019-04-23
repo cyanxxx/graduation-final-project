@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { APIGet } from '../../../config/api'
 import { Core } from '../../../core/index';
 import List from './list'
+import { preload } from '../../../utils/preloading';
 interface Props{
  core: Core
 }
@@ -17,6 +18,7 @@ export default class Item extends Component<Props,State> {
   }
   async componentDidMount() {
     await this.getData()
+    preload()
   }
   async getData() {
     const data = await this.props.core.db.get('/scenery/list',undefined) as APIGet['/scenery/list']['res']

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Carousel from '../../components/common/Carousel'
+import Carousel from '../../components/common/carousel'
 
 import { Card } from '../../components/common/card'
 import Notify from './notify'

@@ -8,11 +8,13 @@ const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+
 function commonConfig(devMode) {
     return {
         entry: {
+           'fetch-polyfill':'whatwg-fetch',
             polyfill: 'babel-polyfill', // for ie8
-            app: './src/index.tsx',
+            app: './src/index.tsx'
             // app: './src/test/index.tsx', // only for webpack test
             // vendor: [
             //     'react',
@@ -24,7 +26,7 @@ function commonConfig(devMode) {
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
             filename: devMode ? '[name].bundle.js' : '[name].bundle.min.js',
-            chunkFilename: devMode ? '[name].chunk.js' : '[name].chunk.min.js',
+            chunkFilename: devMode ? '[name].bundle.js' : '[name].bundle.min.js',
         },
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.json'],
@@ -82,10 +84,10 @@ function commonConfig(devMode) {
                     test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/, use: [
                         {
                             loader: 'url-loader', options: {
-                                name: "[name]-[hash:5].min.[ext]",
+                                name: "[name].[ext]",
                                 limit: 8192,
-                                publicPath: "assets/",
-                                outputPath: "dist/assets/",
+                                // publicPath: "static/",
+                                outputPath: "dist/static/",
                             }
                         },
                     ]
@@ -93,8 +95,9 @@ function commonConfig(devMode) {
             ]
         },
         optimization: {
-            runtimeChunk: 'single',
             splitChunks: {
+                chunks: 'all',
+                minChunks: 2,
                 cacheGroups: {
                     vendors: {
                         test: /[\\/]node_modules[\\/]/,
@@ -102,16 +105,16 @@ function commonConfig(devMode) {
                         chunks: 'all',
                         name: 'vendors',
                     },
-                    // 'react-vendor': {
-                    //     test: /react/,
+                    // 'polyfills': {
+                    //     name: 'polyfill',
                     //     priority: 1,
                     //     chunks: 'initial',
                     // },
-                    default: {
-                        minChunks: 2,
-                        priority: -20,
-                        reuseExistingChunk: true,
-                    },
+                    // default: {
+                    //     minChunks: 2,
+                    //     priority: -20,
+                    //     reuseExistingChunk: true,
+                    // },
                 },
             },
         },

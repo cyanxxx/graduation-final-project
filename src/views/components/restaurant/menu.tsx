@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Core } from '../../../core'
-import MenuItem from './menuItem'
 import { APIGet } from '../../../config/api'
 
-
+import MenuItem from './menuItem'
 import Search from '../common/Search'
 import Nav from './nav'
+import { preload } from '../../../utils/preloading';
 
 interface PageConfig {
   curPage: number, 
@@ -94,6 +94,7 @@ export default class Menu extends Component<Props, States> {
       this.setState({
         data: data.results
       })
+      preload()
   }
   dataConcat = async (nextPage) => {
     let newData = await this.getNewData(nextPage) as APIGet['/restaurant/list']['res']
@@ -101,9 +102,9 @@ export default class Menu extends Component<Props, States> {
       data: preState.data.concat(newData.results),
       page: nextPage
     }))
+    preload()
   }
   dataRefresh = async(nextPage) => {
-    console.log(nextPage)
     let newData = await this.getNewData(nextPage) 
     if(newData){
       this.setState({
@@ -111,6 +112,7 @@ export default class Menu extends Component<Props, States> {
         page: nextPage
       })
     }
+    preload()
   }
   filterHandle = (choiceFilter)=>{
     this.setState({
@@ -145,11 +147,12 @@ export default class Menu extends Component<Props, States> {
       <div>
         <Search handleChange={this.searchHandle}></Search>
         <Nav changeFilter={this.filterHandle} filterSort={filter} sort={sort} location={location} selectHandler={this.changeCategory}
-          render={(config) => <Item {...config} />}/>
+          render={(config) => <Item {...config} />} />
          
         {data!.map((el, i) => {
           return (<MenuItem data={el} key={i} isPhone={false}></MenuItem>)
         })}
+        
         {this.props.render({ curPage: page, hasNext: this.state.canNext, core: this.props.core, getDataHandle: this.dataConcat, totalPage: totalPage, pageHandle: this.dataRefresh})}
        
       </div>

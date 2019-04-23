@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Slider from '../common/Slider';
 import { Resdata, APIGet } from '../../../config/api'
 import { Core } from '../../../core/index';
+import { preload } from '../../../utils/preloading';
 interface Props {
     core: Core,
     shrink?: boolean
@@ -19,7 +20,7 @@ export default class Recomand extends Component<Props, State> {
     renderInfo(data: Resdata.scenerySpot, key?: number) {
         return (
             <div className="info" key={key}>
-                <div className="img_container" style={{ backgroundImage: `url(${data.img}) ` }}></div>
+                <div className="img_container preload" data-src={data.img}></div>
                 <p style={{ fontWeight: 'bold' }}>
                     {data.title}
                 </p>
@@ -35,8 +36,9 @@ export default class Recomand extends Component<Props, State> {
         }
 
     }
-    componentDidMount() {
-        this.getNewData()
+    async componentDidMount() {
+        await this.getNewData()
+        preload()
     }
     render() {
         const { data } = this.state

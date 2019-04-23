@@ -60,7 +60,7 @@ function toNumberDay(str){
 function renderDayDom(year:number,month: number, dayArr: day[],fn:any){
     return dayArr.map((el)=>{
         return <div data-date={`${year}-${month + 1}-${el.val}`} key={el.val} onClick={fn}
-            className={classname_status[el.status]}
+            className={`date ${classname_status[el.status]}`}
         >
             <button>{el.val}</button>
         </div>

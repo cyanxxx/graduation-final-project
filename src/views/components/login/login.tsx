@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Card } from '../common/card';
 import { Link } from 'react-router-dom';
-import { validEmail } from '../../../utils/validates';
-import  Alert  from '../common/Alert'
 import { NotificationError } from '../common/NotificationError';
 
 interface Props {
@@ -64,6 +62,7 @@ export class Login extends React.Component<Props, State> {
                     } else if (this.state.password === '') {
                         this.setState({errMsg: '密码 不能为空。'});
                     } else {
+                        console.log(this.props.login)
                         const success = await this.props.login(this.state.username, this.state.password);
                         if (!success) {
                             this.setState({errMsg: '用户名或密码错误。'})

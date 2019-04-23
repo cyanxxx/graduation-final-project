@@ -1,6 +1,7 @@
 import { DB } from "./db";
 import { History } from 'history'
 import { loadStorage, saveStorage } from "../utils/storage";
+import { APIGet } from "../config/api";
 export class User{
     private db: DB;
     private history: History;
@@ -20,11 +21,14 @@ export class User{
     }
 
     public async login(username: string, pwd: string, backPlace?: string) {
+        console.log('?')
         const res = await this.db.post(`/login`, {username, password: pwd});
+       
         if (!res) { return false; }
         this.isLogin = true;
         saveStorage('token', res.token);
         backPlace ? this.history.push(backPlace) : this.history.push('/');
+        await this.fetchName()
         return true;
     }
 
@@ -44,8 +48,13 @@ export class User{
     public isLoggedIn () : boolean {
         return this.isLogin;
     }
-    public getName () :string {
-        return this.name
+    public getName (){
+        return this.name 
+        
+    }
+    public async fetchName() {
+        const name = await this.db.get('/user', undefined) as APIGet['/user']['res']
+        this.setName(name[0]['username'])
     }
     public setName (name: string)  {
         saveStorage('username', name);
@@ -55,6 +64,6 @@ export class User{
         saveStorage('username', '');
         this.isLogin = false;
         console.log(this.history)
-        this.history.push('/');
+        this.history.replace('/');
     }
 }

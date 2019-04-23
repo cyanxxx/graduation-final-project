@@ -20,14 +20,12 @@ export class Profile extends React.Component<Props, State> {
         }
     }
     async componentDidMount() {
-        const data = await this.props.core.db.get('/user', undefined) as APIGet['/user']['res']
         this.setState({
-            name: data[0]['username']
+            name: this.props.core.user.getName()
         })
-        this.props.core.user.setName(data[0]['username'])
     }
     public render() {
-        return <div>
+        return <div style={{width: '100%'}}>
             <Card>
                 <p>用户名:{this.state.name}</p>
             </Card>

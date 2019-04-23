@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Card } from '../../components/common/card'
-import { Core } from '../../../core';
 import Menu from '../../components/restaurant/menu'
 import LoadMore from '../../components/common/LoadMore'
 import NavItem from '../../mobile/restaurant/navItem'

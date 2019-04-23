@@ -1,22 +1,25 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Core } from '../../core/index';
+import { ROUTE } from '../../config/route';
+import Modal from '../components/common/Modal';
+import { LoginRoute } from '../components/common/login';
+import { Login } from '../components/login/login';
+import { Register } from '../components/login/register';
 
 interface Props {
   static?: boolean,
   spec: LinkSpec[],
   core: Core,
   style?: React.CSSProperties,
-  link: {
-    login: string,
-    sign: string
-  }
 }
 
 type LinkSpec = { to: string, label: string, icon?: string };
 
 interface State {
-  menuOpen: boolean
+  menuOpen: boolean,
+  render: boolean,
+  container: string
 }
 
 export class Navbar extends React.Component<Props, State> {
@@ -24,7 +27,9 @@ export class Navbar extends React.Component<Props, State> {
   constructor(props:Props){
     super(props)
     this.state = {
-      menuOpen: false
+      menuOpen: false,
+      render: false,
+      container: ''
     }
   }
   handleChange = (ev, value) => {
@@ -43,22 +48,48 @@ export class Navbar extends React.Component<Props, State> {
     </Link>;
   }
   renderVisitor(){
-    const { login, sign } = this.props.link
-    return <div className="navbar-item">
-            <div className="buttons">
-            <Link to={sign} className="button is-danger is-inverted is-outlined">
+    return (<div className="navbar-item">
+            <div className="buttons" onClick={(e) => {
+              const target = e.target as HTMLElement
+              const status = target.getAttribute('data-status')
+              if(status){
+                console.log(target.getAttribute('data-status'))
+                this.setState({ container: status, render: true })
+                console.log(this.state.container)
+              }else{
+                return;
+              }
+              
+            }}>
+            <span className="button is-danger is-inverted is-outlined" data-status='注册'>
                 注册
-              </Link>
-              <Link to={login} className="button is-danger is-inverted is-outlined">
+              </span>
+              <span className="button is-danger is-inverted is-outlined" data-status='登录'>
                 登录
-              </Link>
+              </span>
             </div>
-          </div>
+            <Modal render={this.state.render} title={this.state.container} pannelHandle={this.handleRender}>
+              {this.state.container == '登录' ? 
+              <Login login={async (email, pwd) => { this.handleRender();return await this.props.core.user.login(email, pwd)}}></Login> : 
+              <Register register={async (username, pwd) => { this.handleRender(); return await this.props.core.user.register({ username,password: pwd})}}></Register>
+              }   
+            </Modal>
+          </div>)
+  }
+  handleRender = () => {
+    this.setState(prev => ({render: !prev.render}))
   }
   renderUser() {
-    return <div className="navbar-item">
-              {this.props.core.user.getName()}
-            </div>
+    return <div className="navbar-item has-dropdown is-hoverable">
+            <div className="navbar-link" onClick={()=>this.props.core.history.push(ROUTE.users)}>
+              用户：{this.props.core.user.getName()}
+              <div className="navbar-dropdown is-right">
+              <span className="navbar-item" onClick={(e) => { e.stopPropagation();this.props.core.user.logout()}}>
+                  登出
+                </span>
+              </div>
+            </div> 
+          </div>
   }
   menuHandle = () => {
     this.setState((prevState) => ({ menuOpen: !prevState.menuOpen}))
@@ -78,7 +109,7 @@ export class Navbar extends React.Component<Props, State> {
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-      <div className={`navbar-menu ${this.state.menuOpen? 'is-active': ''}`} style={{maxWidth: 940,width:'100%',margin:'auto'}}>
+      <div className={`navbar-menu ${this.state.menuOpen? 'is-active': ''}`} style={{maxWidth: 940,width:'100%',margin:'0 auto'}}>
         <div className="navbar-start">
           {this.props.spec.map(this.renderLinks)}
         </div>

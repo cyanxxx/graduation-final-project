@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route, RouteComponentProps } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { PCroute, ROUTE } from '../../config/route';
 import { Core } from '../../core';
 import {Navbar} from './navbar'
@@ -7,10 +7,11 @@ import Home from './home'
 import Restaurant from './restaurant'
 import Scenery from '../mobile/scenery'
 import './pc_theme.scss';
-import { LoginRoute } from '../mobile/login';
+import { LoginRoute } from '../components/common/login';
 import { Layout } from './layout';
 import Trips from '../components/trip/trips'
 import Weather from './weather';
+import { User } from '../components/user/index';
 
 interface Props{
     core: Core;
@@ -34,6 +35,8 @@ const PCRoute: PCroute[] = [
 
     { path: ROUTE.weather, component: Weather, layout: true},
 
+    { path: ROUTE.users, component: User, layout: true},
+
 ]
 
 export default class PCRouter extends Component<Props, State> {
@@ -50,7 +53,7 @@ export default class PCRouter extends Component<Props, State> {
                     { to: ROUTE.scenery, label: '景点' },
                     { to: ROUTE.travels, label: '路线' },
                     { to: ROUTE.weather, label: '天气' },
-                ]} core={core} link={{ login: ROUTE.login, sign: ROUTE.register}}></Navbar>
+                ]} core={core}></Navbar>
                <Switch>
                    {PCRoute.map((route,i)=> <Route key={i} path={route.path} 
                            exact={route.exact || false} 

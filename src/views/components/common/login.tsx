@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Login } from '../components/login/login';
+import { Login } from '../login/login';
 // import { PasswordReset } from '../components/login/pwd-reset';
-import { Register } from '../components/login/register';
-import { Core } from '../../core/index';
-import { Location } from 'history'
-import { componentProps } from '../../config/route';
+import { Register } from '../login/register';
+import { componentProps } from '../../../config/route';
 
 interface State {
 }
@@ -22,7 +20,7 @@ export class LoginRoute extends React.Component<componentProps, State> {
         switch (window.location.pathname) {
             case '/login':
                 this.location = 'login';
-                return <Login login={async (email, pwd) => this.props.location.state && this.props.location.state.from && await this.props.core.user.login(email, pwd, this.props.location.state.from.pathname)}></Login>;
+                return <Login login={async (email, pwd) => this.props.location.state && this.props.location.state.from ? await this.props.core.user.login(email, pwd, this.props.location.state.from) : await this.props.core.user.login(email, pwd)}></Login>;
             case '/register':
                 this.location = 'register';
                 return <Register register={async (username, pwd) => await this.props.core.user.register({

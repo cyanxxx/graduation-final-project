@@ -4,7 +4,10 @@
     [
       "@babel/preset-env",
       {
-        "modules": false
+        "modules": false,
+        "targets": {
+          "browsers": ["ie >=9"]
+        },
       }
     ]
   ],
