@@ -49,9 +49,9 @@ export default class PCRouter extends Component<Props, State> {
             <div>
                 <Navbar static={false} spec={[
                     { to: ROUTE.home, label: '主页' },
-                    { to: ROUTE.restaurant, label: '餐饮' },
+                    { to: ROUTE.restaurant, label: '饮食' },
                     { to: ROUTE.scenery, label: '景点' },
-                    { to: ROUTE.travels, label: '路线' },
+                    { to: ROUTE.travels, label: '行程' },
                     { to: ROUTE.weather, label: '天气' },
                 ]} core={core}></Navbar>
                <Switch>

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Core } from '../../../core/index';
 const city_json = require('@/city_name.json')
 
 interface Props{

@@ -19,22 +19,18 @@ export default class App extends React.Component<Props, State> {
     public renderApp() {
         const LoadableOtherComponent = Loadable({
             loader: () => import(
-                /* webpackChunkName: "my-chunk-name" */ 
+                /* webpackChunkName: "mobile" */ 
                 './mobile/router'),
             loading: () => <div>Loading...</div>,
         });
         const LoadableComponent = Loadable({
-            loader: () => import(/* webpackChunkName: 'about' */'./pc/router'),
+            loader: () => import(/* webpackChunkName: 'pc' */'./pc/router'),
             loading: () => <div>Loading...</div>,
         });
 
         if(isMobile()) {
-            // const Component = Components['MobileRouter'];
-            // return <Component core={this.props.core}/>;
             return <LoadableOtherComponent core={this.props.core}></LoadableOtherComponent>
         }else{
-            // const Component = Components['PCRouter'];
-            // return <Component core={this.props.core} />;
             return <LoadableComponent core={this.props.core}></LoadableComponent>
         }
     }

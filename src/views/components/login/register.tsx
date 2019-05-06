@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Card } from '../common/card';
-import { validEmail, validPwd } from '../../../utils/validates';
 import { NotificationError } from '../common/NotificationError';
 
 interface Props {

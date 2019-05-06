@@ -1,7 +1,6 @@
 import { DB } from './db'
 import { EventFactory } from '../utils/event'
 import { debounce } from '../utils/debounce'
-import { Swipe } from './swipe'
 import { createBrowserHistory } from 'history';
 import { History } from 'history';
 import { User } from './user'
@@ -16,8 +15,6 @@ export class Core{
     
     
     constructor(){
-        //Swipe()
-       
         this.history = createBrowserHistory();
         this.db = new DB()
         this.user = new User(this.db, this.history)

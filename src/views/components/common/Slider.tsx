@@ -1,4 +1,4 @@
-import React, { Component, CSSProperties, ReactChildren } from 'react'
+import React, { Component, CSSProperties } from 'react'
 import './slider.scss'
 import { Link } from 'react-router-dom';
 interface Props{

@@ -56,7 +56,7 @@ export class Login extends React.Component<Props, State> {
                             <i className={`fas ${this.state.password_type === '' ? 'fa-eye': 'fa-eye-slash'}`}></i>
                         </span>
                 </div>
-                <div style={{
+                {/* <div style={{
                     marginTop: '1vh',
                     textAlign: 'justify',
                 }}>
@@ -67,9 +67,12 @@ export class Login extends React.Component<Props, State> {
                         float: 'right',
                         fontSize: 'smaller',
                     }}>忘记密码/重新激活</Link>
-                </div>
+                </div> */}
 
-                <a className="button is-fullwidth" onClick={async (ev) => {
+                <div className="button is-fullwidth" style={{
+                    marginTop: '1vh',
+                    textAlign: 'justify',
+                }} onClick={async (ev) => {
                     if (this.state.username === '') {
                         this.setState({errMsg: '用户名 不能为空。'});
                     } else if (this.state.password === '') {
@@ -81,7 +84,7 @@ export class Login extends React.Component<Props, State> {
                             this.setState({errMsg: '用户名或密码错误。'})
                         }
                     }
-                }}>登录</a>
+                }}>登录</div>
             </div>
             <div className="card-footer">
                 <span>还没账号?&#160;&#160;</span><Link to="/register">现在注册</Link>!

@@ -20,9 +20,7 @@ export default class Currency extends React.Component<Props,State>{
     }
     async componentDidMount(){    
         const currency = await this.props.core.db.get(`/currency`,undefined)
-        console.log(currency)
         currency? this.setState({ data: currency }): null
-        console.log('joi')
         
     }
     render() {

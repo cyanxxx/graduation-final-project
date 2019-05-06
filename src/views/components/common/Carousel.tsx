@@ -102,9 +102,6 @@ export default class Carousel extends React.Component<Props, State>{
 
         this.visibleHandle = eventHandle(this.autoplay.bind(this))
         this.props.windowVisibleEvent.sub('open',this.visibleHandle)
-
-        
-       
     }
     componentWillUnmount() {
         clearInterval(this.interval)

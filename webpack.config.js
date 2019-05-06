@@ -104,12 +104,7 @@ function commonConfig(devMode) {
                         priority: -10,
                         chunks: 'all',
                         name: 'vendors',
-                    },
-                    // 'polyfills': {
-                    //     name: 'polyfill',
-                    //     priority: 1,
-                    //     chunks: 'initial',
-                    // },
+                    }
                     // default: {
                     //     minChunks: 2,
                     //     priority: -20,
@@ -123,6 +118,7 @@ function commonConfig(devMode) {
                 filename: "index.html",
                 template: "index.html",
                 title: "Caching",
+                projectPath: 'static',
                 minify: {
                     collapseWhitespace: true,
                     removeComments: true,
@@ -141,7 +137,6 @@ const devConfig = {
         ],
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 2563,
         open: true,

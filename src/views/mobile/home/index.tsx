@@ -19,8 +19,10 @@ export default class index extends Component<componentProps,State> {
   render() {
     const data = [
         <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-01.png" alt=""/>,
-        <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-02.png" alt="" />
-       
+        <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-02.png" alt="" />,
+        <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-08.jpg" alt="" />,
+        <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-09.jpg" alt="" />
+  
     ]
     const {core} = this.props
     return (

@@ -62,7 +62,7 @@ $pagination-current-border-color: $link-bg;
 
 // Import only what you need from Bulma
 @import "~bulma/bulma";
-.navbar-item{
+// .navbar-item{
     // @media screen and (min-width : 1087px) {
     //     &:first-child {
     //         padding-left: 0;
@@ -73,7 +73,7 @@ $pagination-current-border-color: $link-bg;
     //     }
     // }
     
-}
+// }
 // @import "BULMA/sass/utilities/_all.sass";
 // @import "BULMA/sass/base/_all.sass";
 // @import "BULMA/sass/elements/button.sass";
