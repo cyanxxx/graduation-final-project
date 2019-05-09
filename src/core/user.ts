@@ -57,6 +57,7 @@ export class User{
         this.setName(name[0]['username'])
     }
     public setName (name: string)  {
+        this.name = name
         saveStorage('username', name);
     }
     public logout () {

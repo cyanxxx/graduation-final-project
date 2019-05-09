@@ -1,5 +1,5 @@
 import * as React from 'react'
-const city_json = require('@/city_name.json')
+const city_json = require('STATIC/city_name.json')
 
 interface Props{
     onChoice: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => Promise<void>,

@@ -32,7 +32,8 @@ function commonConfig(devMode) {
             extensions: ['.ts', '.tsx', '.js', '.json'],
             modules: ['node_modules'],
             alias: {
-                '@': path.resolve(__dirname, 'static'),
+                '@': path.resolve(__dirname, 'src'),
+                'STATIC': path.resolve(__dirname, 'static'),
                 'DATA': path.resolve(__dirname,'src/config/api'),
                 'BULMA': path.resolve(__dirname,'node_modules/bulma'),
                 'FONT': path.resolve(__dirname,'static/font.js')
@@ -77,7 +78,9 @@ function commonConfig(devMode) {
                                 plugins: () => [require('precss'), require('autoprefixer')],
                             }
                         },
-                        { loader: 'sass-loader' },
+                        { loader: 'sass-loader', options: {
+                            data: `@import "~@/_varible.scss";`
+                        } },
                     ]
                 },
                 {
