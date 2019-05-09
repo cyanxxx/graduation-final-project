@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 enum STATUS { NEWS, ACTIVITY }
 import { Core } from '../../../core/index';
 import { APIGet } from '../../../config/api';
-import Pheader  from '../../mobile/home/loaction'
+import Pheader  from './loaction'
 import Pcontent  from '../../components/news/index'
 interface Props {
     core: Core
@@ -19,7 +19,7 @@ export default class Notify extends Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            titles: ['最新新闻', '最新活动'],
+            titles: ['最新信息', '最新活动'],
             currentStatus: STATUS.NEWS,
             newsData: [],
             activityData: []
