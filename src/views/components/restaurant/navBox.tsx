@@ -59,7 +59,7 @@ export default class NavBox extends Component<Props,State> {
                      return <li style={{ display: 'flex', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid #dcdcdc' }}>
                                 <div className="main center" style={{ flex: '3 4 0', marginRight: 10}}>
                                     <div className="image is-4by3 center">
-                                        <img src={`http://localhost:8000${imgs[el.name]}`} alt="" />
+                                        <img src={`http://68.168.136.230:8000${imgs[el.name]}`} alt="" />
                                         <div className='middle'>
                                             {el.cn_name}
                                         </div>
