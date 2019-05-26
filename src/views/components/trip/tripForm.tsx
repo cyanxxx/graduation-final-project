@@ -37,9 +37,9 @@ export default class TripForm extends Component<componentProps,State> {
   }
     handleChange = (event,status) =>{
         if(status === 'start'){
-            this.setState({ startTime: event.target.value });
+            this.setState({ startTime: parseInt(event.target.value) });
         }else{
-            this.setState({ endTime: event.target.value });
+            this.setState({ endTime: parseInt(event.target.value) });
         }
         
   }

@@ -21,7 +21,6 @@ export class User{
     }
 
     public async login(username: string, pwd: string, backPlace?: string) {
-        console.log('?')
         const res = await this.db.post(`/login`, {username, password: pwd});
        
         if (!res) { return false; }
