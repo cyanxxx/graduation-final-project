@@ -27,8 +27,8 @@ export class User{
         if (!res) { return false; }
         this.isLogin = true;
         saveStorage('token', res.token);
+        await this.fetchName();
         backPlace ? this.history.push(backPlace) : this.history.push('/');
-        await this.fetchName()
         return true;
     }
 
