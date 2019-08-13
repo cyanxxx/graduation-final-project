@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import DatePicker from '../common/date-picker'
-import { Card } from '../common/card';
+import DatePicker from '../common/DatePicker'
+import { Card } from '../common/Card';
 import { APIPost } from '../../../config/api';
 import { Redirect } from 'react-router';
 import { componentProps, ROUTE } from '../../../config/route';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from '../common/card';
+import { Card } from '../common/Card';
 import { componentProps, ROUTE } from '../../../config/route';
 import { APIPost } from '../../../config/api';
 import Alert from '../common/Alert';

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Topbar from './topbar'
-import Carousel from '../../components/common/carousel'
+import Carousel from '../../components/common/Carousel'
 import { Midnav } from '../midnav'
 import { Ad } from './ad'
-import { Card } from '../../components/common/card'
+import { Card } from '../../components/common/Card'
 
 import ResRecomand from '../../components/restaurant/recomand';
 import SceRecomand from '../../components/scenery/recomand';

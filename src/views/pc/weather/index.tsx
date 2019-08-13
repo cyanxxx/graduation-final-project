@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { componentProps } from '../../../config/route';
-import CurrentWeather from '../../components/weather/CurrentWeahter';
+import CurrentWeather from '../../components/weather/currentWeather';
 
 interface State {
 

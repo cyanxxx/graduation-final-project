@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Core } from '../../core/index';
 import { ROUTE } from '../../config/route';
 import Modal from '../components/common/Modal';
-import { LoginRoute } from '../components/common/login';
 import { Login } from '../components/login/login';
 import { Register } from '../components/login/register';
 

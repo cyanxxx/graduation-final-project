@@ -1,7 +1,6 @@
 import React from "react";
-import { Card } from "../../components/common/card";
+import { Card } from "../common/Card";
 import { Core } from "../../../core/index";
-import { APIGet } from "../../../config/api";
 import { Link } from "react-router-dom";
 import { ROUTE } from "../../../config/route";
 

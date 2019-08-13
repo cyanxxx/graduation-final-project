@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Carousel from '../../components/common/carousel'
+import Carousel from '../../components/common/Carousel'
 
-import { Card } from '../../components/common/card'
+import { Card } from '../../components/common/Card'
 import Notify from './notify'
 
 import ResRecomand from '../../components/restaurant/recomand';

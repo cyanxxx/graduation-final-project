@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card } from '../common/card';
+import { Card } from '../common/Card';
 
 interface Props {
     resetPassword:(email:string) => Promise<boolean>;

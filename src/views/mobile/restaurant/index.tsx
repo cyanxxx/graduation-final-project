@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from '../../components/common/card'
+import { Card } from '../../components/common/Card'
 import Menu from '../../components/restaurant/menu'
 import LoadMore from '../../components/common/LoadMore'
 import NavItem from '../../mobile/restaurant/navItem'

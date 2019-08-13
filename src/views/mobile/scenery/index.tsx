@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from '../../components/common/card'
-import { Core } from '../../../core';
+import { Card } from '../../components/common/Card'
 import Scenery from '../../components/scenery/item';
 import { componentProps } from '../../../config/route';
 interface State {

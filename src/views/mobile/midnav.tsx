@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ROUTE } from '../../config/route';
 
-import {UdNav} from '../components/common/navBar'
+import { UdNav } from '../components/common/NavBar'
 interface Props {
 
 }

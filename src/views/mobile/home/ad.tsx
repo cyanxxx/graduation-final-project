@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ROUTE } from '../../../config/route';
 
-import { LrNav } from '../../components/common/navBar'
+import { LrNav } from '../../components/common/NavBar'
 interface Props {
 
 }

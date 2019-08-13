@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Currency from '../../components/currency'
-import Weather from '../../components/weather/CurrentWeahter'
+import Weather from '../../components/weather/currentWeather'
 import { Core } from '../../../core';
 interface Props {
   core: Core;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Slider from '../common/Slider';
 import { Resdata, APIGet } from '../../../config/api'
-import { Core } from '../../../core/index';
+import { Core } from '../../../core';
 import { preload } from '../../../utils/preloading'
 interface Props{
     core: Core,

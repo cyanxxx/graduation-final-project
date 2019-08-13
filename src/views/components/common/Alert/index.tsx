@@ -1,6 +1,7 @@
 import React from 'react'
 import Alert from './Alert'
 import ReactDOM from 'react-dom';
+
 interface Props{
     // duration?: number,
     // type?: string,

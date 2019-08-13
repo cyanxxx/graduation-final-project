@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './carousel.scss'
-import { EventBus, EventComplexBus } from '../../../utils/event';
+import { EventBus, EventComplexBus } from '../../../../utils/event';
 interface Props{
     data: JSX.Element[],
     speed: number,

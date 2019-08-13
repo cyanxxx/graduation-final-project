@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import { Navbar } from './navbar'
-import {  Mobileroute, ROUTE } from '../../config/route';
+import { Mobileroute, ROUTE } from '../../config/route';
 import Home from './home'
 import Restaurant from './restaurant'
 import Scenery from './scenery'
 import { Core } from '../../core/index';
 import { Layout } from './layout'
 import './moblie_theme.scss'
-import { LoginRoute } from '../components/common/login';
+import { LoginRoute } from '../components/common/Login';
 import { User } from '../components/user';
 import Trip from '../components/trip/create'
 import Trips from '../components/trip/trips'

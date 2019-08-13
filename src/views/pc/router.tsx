@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import { PCroute, ROUTE } from '../../config/route';
 import { Core } from '../../core';
-import {Navbar} from './navbar'
+import { Navbar } from './navbar'
 import Home from './home'
 import Restaurant from './restaurant'
 import Scenery from '../mobile/scenery'
 import './pc_theme.scss';
-import { LoginRoute } from '../components/common/login';
+import { LoginRoute } from '../components/common/Login';
 import { Layout } from './layout';
 import Trips from '../components/trip/trips'
 import Weather from './weather';

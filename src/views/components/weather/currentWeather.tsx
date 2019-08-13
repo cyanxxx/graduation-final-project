@@ -1,9 +1,9 @@
 import * as React from 'react';
-import ChoiceWearher from './ChoiceWeather'
+import ChoiceWearher from './choiceWeather'
 import Modal from '../common/Modal';
 import { Core } from '../../../core/index';
 import { APIGet } from '../../../config/api';
-import { Card } from '../common/card';
+import { Card } from '../common/Card';
 interface Props {
     core: Core,
     simple: boolean

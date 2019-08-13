@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card } from '../common/card';
+import { Card } from '../common/Card';
 import { NotificationError } from '../common/NotificationError';
 
 interface Props {
