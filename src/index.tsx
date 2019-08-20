@@ -6,15 +6,12 @@ import './theme.scss';
 import App from './views/index';
 import { Core } from './core/index';
 
-(async function () {
-    const core = new Core();
+(async function() {
+  const core = new Core();
 
-    const root = document.createElement('div');
-    root.id = 'app';
-    document.body.appendChild(root);
+  const root = document.createElement('div');
+  root.id = 'app';
+  document.body.appendChild(root);
 
-    ReactDOM.render(
-        <App core={core} />,
-        root,
-    );
+  ReactDOM.render(<App core={core} />, root);
 })();

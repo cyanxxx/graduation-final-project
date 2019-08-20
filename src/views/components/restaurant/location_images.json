@@ -1,1 +1,12 @@
-{"hokkaido": "/media/restaurant/regions/01_Hokkaido.png", "tohoku": "/media/restaurant/regions/02_Tohoku.png", "hokuriku": "/media/restaurant/regions/03_HokurikuShinetsu.png", "kanto": "/media/restaurant/regions/04_Kanto.png", "tokai": "/media/restaurant/regions/05_Tokai.png", "kansai": "/media/restaurant/regions/06_Kansai.png", "chugoku": "/media/restaurant/regions/07_Chugoku.png", "shikoku": "/media/restaurant/regions/08_Shikoku.png", "kyushu": "/media/restaurant/regions/09_Kyushu.png", "okinawa": "/media/restaurant/regions/10_Okinawa.png"}
+{
+  "hokkaido": "/media/restaurant/regions/01_Hokkaido.png",
+  "tohoku": "/media/restaurant/regions/02_Tohoku.png",
+  "hokuriku": "/media/restaurant/regions/03_HokurikuShinetsu.png",
+  "kanto": "/media/restaurant/regions/04_Kanto.png",
+  "tokai": "/media/restaurant/regions/05_Tokai.png",
+  "kansai": "/media/restaurant/regions/06_Kansai.png",
+  "chugoku": "/media/restaurant/regions/07_Chugoku.png",
+  "shikoku": "/media/restaurant/regions/08_Shikoku.png",
+  "kyushu": "/media/restaurant/regions/09_Kyushu.png",
+  "okinawa": "/media/restaurant/regions/10_Okinawa.png"
+}

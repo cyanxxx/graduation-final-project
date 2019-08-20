@@ -1,153 +1,152 @@
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 .withLine {
-    border-right: 1px solid #eee;
-    margin-right: 10px;
+  border-right: 1px solid #eee;
+  margin-right: 10px;
 }
 
 .withLine:last-child {
-    border: 0;
-    margin-right: 0;
+  border: 0;
+  margin-right: 0;
 }
 
 .icon-svg {
-    width: 2em;
-    height: 2em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 .tag {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 %overflow-p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .info p {
-    @extend %overflow-p;
+  @extend %overflow-p;
 }
 
 .icon-p {
+  vertical-align: middle;
+  cursor: pointer;
+  flex: 1 1 auto;
+
+  .icon-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 10px;
     vertical-align: middle;
-    cursor: pointer;
-    flex: 1 1 auto;
+  }
 
-    .icon-svg {
-        width: 1.5rem;
-        height: 1.5rem;
-        margin-right: 10px;
-        vertical-align: middle;
-    }
-
-    &:after {
-        display: inline-block;
-        content: '';
-        height: 100%;
-        vertical-align: middle;
-        width: 0;
-    }
+  &:after {
+    display: inline-block;
+    content: '';
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+  }
 }
 
 .menu:hover {
-    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5), 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5), 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
 .search {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .is-left {
-    color: #dbdbdb;
-    height: 2.25em;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2.25em;
-    z-index: 4;
+  color: #dbdbdb;
+  height: 2.25em;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.25em;
+  z-index: 4;
 }
-.alert-box{
-    position: absolute;
-    top: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 300px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.32));
+.alert-box {
+  position: absolute;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 300px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.32));
 }
 .hiddle {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .top {
-    display: flex;
+  display: flex;
 
-    div {
-        flex: 1 1 0;
-    }
+  div {
+    flex: 1 1 0;
+  }
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .menuBox {
-    display: flex;
+  display: flex;
 
-    .lm,
-    .rd {
-        overflow: auto;
-        max-height: 30vh;
+  .lm,
+  .rd {
+    overflow: auto;
+    max-height: 30vh;
+  }
+
+  .sort {
+    cursor: pointer;
+    box-sizing: border-box;
+    border-left: 5px solid transparent;
+    padding: 10px 5px;
+
+    &.active {
+      border-left: 5px solid $link-bg;
+      background: #eee;
+      color: $link-bg;
     }
+  }
 
-    .sort {
-        cursor: pointer;
-        box-sizing: border-box;
-        border-left: 5px solid transparent;
-        padding: 10px 5px;
+  .detailSort {
+    padding: 5px;
+    cursor: pointer;
+  }
 
-        &.active {
-            border-left: 5px solid $link-bg;
-            background: #eee;
-            color: $link-bg;
-        }
-    }
-
-    .detailSort {
-        padding: 5px;
-        cursor: pointer;
-    }
-
-    div {
-        flex: 1;
-    }
+  div {
+    flex: 1;
+  }
 }
 .center {
-    position: relative;
+  position: relative;
 
-    .middle {
-        position: absolute;
-        left: 0;
-        top:0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-    }
+  .middle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
 }
-.img_container{
-    background-size: cover;
+.img_container {
+  background-size: cover;
 }
-.preload{
-    background-image: url('../static/loading.gif');
-    background-color: #eee;
-    
+.preload {
+  background-image: url('../static/loading.gif');
+  background-color: #eee;
 }

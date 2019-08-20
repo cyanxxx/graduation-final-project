@@ -11,7 +11,7 @@
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "outDir": "dist",
-    "rootDirs": ["src", "stories","static"],
+    "rootDirs": ["src", "stories", "static"],
     "plugins": [
       {
         "name": "tslint-language-service"
@@ -22,19 +22,12 @@
     "strict": true,
     "target": "esnext",
     // "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "DATA": ["./src/config/api"]
+    }
   },
-  "paths": {
-      "*": [
-        "./types/*"
-      ]
-  },
-  "include": [
-    "src/**/*",
-    "types"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "include": ["src/**/*", "types"],
+  "exclude": ["dist", "node_modules"]
 }

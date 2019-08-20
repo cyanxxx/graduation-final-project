@@ -14,7 +14,7 @@
 // %toBFC{
 //     content: '';
 //     display: table;
-   
+
 // }
 // .clearFix{
 //      *zoom:1;
@@ -38,10 +38,9 @@
 
 $red: #d80000;
 
-
 @import '../../_varible';
 // Update Bulma's global variables
-$family-sans-serif: "Nunito",sans-serif;
+$family-sans-serif: 'Nunito', sans-serif;
 $grey-light: $beige-light;
 $primary-color: $link-bg;
 
@@ -61,18 +60,18 @@ $pagination-current-background-color: $link-bg;
 $pagination-current-border-color: $link-bg;
 
 // Import only what you need from Bulma
-@import "~bulma/bulma";
+@import '~bulma/bulma';
 // .navbar-item{
-    // @media screen and (min-width : 1087px) {
-    //     &:first-child {
-    //         padding-left: 0;
-    //     }
+// @media screen and (min-width : 1087px) {
+//     &:first-child {
+//         padding-left: 0;
+//     }
 
-    //     &:last-child {
-    //         padding-right: 0;
-    //     }
-    // }
-    
+//     &:last-child {
+//         padding-right: 0;
+//     }
+// }
+
 // }
 // @import "BULMA/sass/utilities/_all.sass";
 // @import "BULMA/sass/base/_all.sass";

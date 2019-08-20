@@ -1,3 +1,3 @@
 export function isMobile(): boolean {
-    return navigator.userAgent.indexOf('Mobile') > -1;
+  return navigator.userAgent.indexOf('Mobile') > -1;
 }
