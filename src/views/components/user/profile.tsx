@@ -18,7 +18,7 @@ export class Profile extends React.Component<Props, State> {
       name: '',
     };
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     this.setState({
       name: this.props.core.user.getName(),
     });

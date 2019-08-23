@@ -29,7 +29,7 @@ export default class NavItem extends Component<Props, States> {
       currentLocation: '',
     };
   }
-  renderMenu() {
+  public renderMenu() {
     const { sort, selectHandler } = this.props;
     const { subSort, currentSort } = this.state;
     return (
@@ -72,7 +72,7 @@ export default class NavItem extends Component<Props, States> {
       </div>
     );
   }
-  renderLocation() {
+  public renderLocation() {
     const { selectHandler, location } = this.props;
     const { currentLocation, subLocation } = this.state;
     return (
@@ -115,7 +115,7 @@ export default class NavItem extends Component<Props, States> {
       </div>
     );
   }
-  render() {
+  public render() {
     const { filterSort } = this.props;
     return <div>{filterSort === filter.sort ? this.renderMenu() : this.renderLocation()}</div>;
   }

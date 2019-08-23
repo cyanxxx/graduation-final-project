@@ -39,7 +39,7 @@ export default class MobileRouter extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  render() {
+  public render() {
     const h = window.innerHeight;
     const { core } = this.props;
     return (

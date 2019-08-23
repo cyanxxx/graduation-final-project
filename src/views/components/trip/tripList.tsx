@@ -13,7 +13,7 @@ export default class TripList extends Component<componentProps, State> {
         data: [],
       });
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     if (this.props.location.state.id) {
       const data = (await this.props.core.db.get('/trip/list', {
         id: this.props.location.state.id,
@@ -25,7 +25,7 @@ export default class TripList extends Component<componentProps, State> {
       this.props.history.push('/');
     }
   }
-  renderItem() {
+  public renderItem() {
     return this.state.data[0].lst.map(el => {
       return (
         <tr>
@@ -39,27 +39,27 @@ export default class TripList extends Component<componentProps, State> {
       );
     });
   }
-  toNumberDay(str) {
-    let arr = str.split('-');
-    let year = parseInt(arr[0]);
-    let month = parseInt(arr[1]);
-    let day = parseInt(arr[2]);
+  public toNumberDay(str) {
+    const arr = str.split('-');
+    const year = parseInt(arr[0]);
+    const month = parseInt(arr[1]);
+    const day = parseInt(arr[2]);
     return [year, month, day];
   }
-  renderTabs() {
+  public renderTabs() {
     if (this.state.data[0] && this.state.data[0].start_date) {
-      let startDate = this.toNumberDay(this.state.data[0].start_date);
+      const startDate = this.toNumberDay(this.state.data[0].start_date);
       const start_month = startDate[1];
       const start_day = startDate[2];
-      let endDate = this.toNumberDay(this.state.data[0].end_date);
+      const endDate = this.toNumberDay(this.state.data[0].end_date);
       const end_month = endDate[1];
       const end_day = endDate[2];
-      let arr: string[] = [];
+      const arr: string[] = [];
       if (start_month < end_month) {
-        let date = new Date(this.state.data[0].start_date);
+        const date = new Date(this.state.data[0].start_date);
         date.setMonth(start_month);
         date.setDate(0);
-        let totalDay = date.getDate();
+        const totalDay = date.getDate();
         for (let i = start_day; i <= totalDay; i++) {
           arr.push(start_month + '-' + i);
         }
@@ -96,7 +96,7 @@ export default class TripList extends Component<componentProps, State> {
       );
     }
   }
-  render() {
+  public render() {
     return (
       <Card>
         {this.renderTabs()}

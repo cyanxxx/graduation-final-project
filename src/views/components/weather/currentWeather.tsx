@@ -27,19 +27,19 @@ export default class CurrentWeather extends React.Component<Props, State> {
       open: false,
     };
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     const json = (await this.getWeather(this.state.data.city)) as APIGet['/weather']['res'];
     json && this.setState({ data: json });
   }
-  async getWeather(city: string) {
+  public async getWeather(city: string) {
     const city_name = decodeURIComponent(city);
     return this.props.core.db.get('/weather', { city: city_name });
   }
-  switchCity = () => {
+  public switchCity = () => {
     const cur = !this.state.open;
     this.setState({ open: cur });
   };
-  cityHandle = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  public cityHandle = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     const target = e.target as HTMLElement;
     this.setState({ open: false });
     const json = (await this.getWeather(target.getAttribute(
@@ -48,7 +48,7 @@ export default class CurrentWeather extends React.Component<Props, State> {
     json.city = target.textContent as string;
     this.setState({ data: json });
   };
-  renderDetail() {
+  public renderDetail() {
     const {
       temp,
       icon,
@@ -110,7 +110,7 @@ export default class CurrentWeather extends React.Component<Props, State> {
       </figure>
     );
   }
-  renderSimple() {
+  public renderSimple() {
     const { temp, icon, city, description } = this.state.data;
     const { open } = this.state;
     const icon_src = this.props.core.db.getStaticURL() + 'weather/' + icon + '.png';
@@ -148,7 +148,7 @@ export default class CurrentWeather extends React.Component<Props, State> {
       </figure>
     );
   }
-  render() {
+  public render() {
     const { temp, icon, city, description } = this.state.data;
 
     return this.props.simple ? this.renderSimple() : this.renderDetail();

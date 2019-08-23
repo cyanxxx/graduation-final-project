@@ -13,7 +13,7 @@ export default class trips extends Component<componentProps, State> {
       data: [],
     };
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     const own = this.props.location.state && this.props.location.state.own ? true : false;
     const data = (await this.props.core.db.get('/trip', {
       own: own,
@@ -22,7 +22,7 @@ export default class trips extends Component<componentProps, State> {
       data: data,
     });
   }
-  renderList(el: Resdata.trip) {
+  public renderList(el: Resdata.trip) {
     return (
       <Card key={el.id}>
         <header className="card-header">
@@ -39,7 +39,7 @@ export default class trips extends Component<componentProps, State> {
       </Card>
     );
   }
-  render() {
+  public render() {
     return (
       <div style={{ width: '100%' }}>
         {this.state.data &&

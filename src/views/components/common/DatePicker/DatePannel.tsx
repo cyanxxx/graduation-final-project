@@ -26,7 +26,7 @@ enum displayMode {
   date,
 }
 export default class DatePannel extends React.Component<Props, State> {
-  alert: any;
+  public alert: any;
   constructor(props: Props) {
     super(props);
     const date = new Date();
@@ -39,14 +39,14 @@ export default class DatePannel extends React.Component<Props, State> {
       mode: displayMode.date,
     };
   }
-  selectDate = (ev: Event) => {
+  public selectDate = (ev: Event) => {
     const target = ev.currentTarget as HTMLElement;
     let start_day, end_day;
     if (!this.props.start_day) {
       start_day = target.dataset.date;
     } else if (!this.props.end_day) {
       end_day = target.dataset.date;
-      let fn = compareDate(this.props.start_day, end_day);
+      const fn = compareDate(this.props.start_day, end_day);
       fn.isVerse() ? (start_day = end_day) && (end_day = this.props.start_day) : null;
       if (fn.isOverflow()) {
         this.alert = new AlertBox({ message: '不能超过30天' });
@@ -59,7 +59,7 @@ export default class DatePannel extends React.Component<Props, State> {
     this.forceUpdate();
     this.props.dateHandle(start_day, end_day);
   };
-  changeMonth = (month: number, year: number) => {
+  public changeMonth = (month: number, year: number) => {
     if (month < 0) {
       this.setState({ cur_year: year - 1, cur_month: 12 });
       return;
@@ -70,13 +70,13 @@ export default class DatePannel extends React.Component<Props, State> {
     }
     this.setState({ cur_month: month, mode: displayMode.date });
   };
-  changeYear = (year: number) => {
+  public changeYear = (year: number) => {
     this.setState({ cur_year: year, mode: displayMode.date });
   };
-  componentWillUnmount() {
+  public componentWillUnmount() {
     this.alert && this.alert.close();
   }
-  render() {
+  public render() {
     const { date, cur_month, cur_year, mode } = this.state;
     var pannl: JSX.Element;
     switch (mode) {

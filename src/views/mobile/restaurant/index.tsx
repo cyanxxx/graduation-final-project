@@ -7,7 +7,7 @@ import { componentProps } from '../../../config/route';
 
 interface State {}
 export default class Index extends Component<componentProps, State> {
-  render() {
+  public render() {
     const { core } = this.props;
     return (
       <div>

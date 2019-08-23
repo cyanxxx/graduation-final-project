@@ -9,7 +9,7 @@ interface Props {
 }
 interface State {}
 export default class Reastaurant extends React.Component<Props, State> {
-  render() {
+  public render() {
     const { lists, label, handleSelect, icon, val, waiting } = this.props;
     return (
       <div className="field">

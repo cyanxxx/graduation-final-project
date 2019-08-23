@@ -13,7 +13,7 @@ interface State {
 }
 
 export default class TripForm extends Component<componentProps, State> {
-  transport: string[];
+  public transport: string[];
   constructor(prop: componentProps) {
     super(prop);
     this.state = {
@@ -25,8 +25,8 @@ export default class TripForm extends Component<componentProps, State> {
     };
     this.transport = ['', '飞机', '新干线', '地铁', '公交', '出租车', '步行'];
   }
-  renderSelect(start: number, end: number): JSX.Element[] {
-    let arr: number[] = [];
+  public renderSelect(start: number, end: number): JSX.Element[] {
+    const arr: number[] = [];
     for (let i = start; i < end; i++) {
       arr.push(i);
     }
@@ -38,19 +38,19 @@ export default class TripForm extends Component<componentProps, State> {
       );
     });
   }
-  handleChange = (event, status) => {
+  public handleChange = (event, status) => {
     if (status === 'start') {
       this.setState({ startTime: parseInt(event.target.value) });
     } else {
       this.setState({ endTime: parseInt(event.target.value) });
     }
   };
-  create = async () => {
+  public create = async () => {
     if (!this.state.loaction) {
       Alert({ message: '请填入地点' });
       return;
     }
-    let data = {};
+    const data = {};
     for (const key in this.state) {
       if (this.state[key]) {
         data[key] = this.state[key];
@@ -71,7 +71,7 @@ export default class TripForm extends Component<componentProps, State> {
       id: this.props.location.state.id,
     });
   };
-  render() {
+  public render() {
     const { loaction, endTime, startTime, transport, info } = this.state;
     return (
       <Card>

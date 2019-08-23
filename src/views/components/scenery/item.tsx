@@ -16,11 +16,11 @@ export default class Item extends Component<Props, State> {
       data: [],
     };
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     await this.getData();
     preload();
   }
-  async getData() {
+  public async getData() {
     const data = (await this.props.core.db.get(
       '/scenery/list',
       undefined,
@@ -29,7 +29,7 @@ export default class Item extends Component<Props, State> {
       data: data,
     });
   }
-  render() {
+  public render() {
     return (
       <div>
         {this.state.data &&

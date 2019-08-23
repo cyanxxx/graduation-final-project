@@ -9,7 +9,7 @@ interface Props {
 }
 interface State {}
 export class Layout extends Component<Props, State> {
-  render() {
+  public render() {
     return (
       <div>
         <Topnav core={this.props.core} title={this.props.title} right={this.props.right}></Topnav>

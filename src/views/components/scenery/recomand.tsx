@@ -17,7 +17,7 @@ export default class Recomand extends Component<Props, State> {
       data: [],
     };
   }
-  renderInfo(data: Resdata.scenerySpot, key?: number) {
+  public renderInfo(data: Resdata.scenerySpot, key?: number) {
     return (
       <div className="info" key={key}>
         <div className="img_container preload" data-src={data.img}></div>
@@ -25,7 +25,7 @@ export default class Recomand extends Component<Props, State> {
       </div>
     );
   }
-  async getNewData() {
+  public async getNewData() {
     const data = (await this.props.core.db.get(
       '/scenery/recommand',
       undefined,
@@ -36,11 +36,11 @@ export default class Recomand extends Component<Props, State> {
       });
     }
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     await this.getNewData();
     preload();
   }
-  render() {
+  public render() {
     const { data } = this.state;
     return (
       <Slider title={'景点推荐'} linkMore={'/scenery'} shrink={this.props.shrink}>

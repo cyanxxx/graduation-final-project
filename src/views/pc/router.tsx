@@ -40,7 +40,7 @@ export default class PCRouter extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  render() {
+  public render() {
     const core = this.props.core;
     return (
       <div>

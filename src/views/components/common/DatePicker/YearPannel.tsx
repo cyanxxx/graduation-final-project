@@ -4,7 +4,7 @@ interface Props {
   choiceYear: any;
 }
 function createYear(year: number) {
-  let years: number[] = [];
+  const years: number[] = [];
   for (let i = year - 10; i < year + 10; i++) {
     years.push(i);
   }

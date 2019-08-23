@@ -9,12 +9,12 @@ interface Props {
 }
 interface States {}
 export default class LoadMore extends Component<Props, States> {
-  contentBottom: HTMLDivElement | null;
+  public contentBottom: HTMLDivElement | null;
   constructor(props: Props) {
     super(props);
     this.contentBottom = null;
   }
-  componentDidMount() {
+  public componentDidMount() {
     // this.props.core.windowSlideDownEvent.sub(() => {
     //   this.reachBottom()
     // })
@@ -22,7 +22,7 @@ export default class LoadMore extends Component<Props, States> {
       this.reachBottom();
     });
   }
-  componentWillUnmount() {
+  public componentWillUnmount() {
     // this.props.core.windowSlideDownEvent.unsub(() => {
     //   this.reachBottom()
     // })
@@ -30,7 +30,7 @@ export default class LoadMore extends Component<Props, States> {
       this.reachBottom();
     });
   }
-  reachBottom() {
+  public reachBottom() {
     const { getDataHandle, curPage, hasNext } = this.props;
     if (!hasNext) {
       // this.props.core.windowSlideDownEvent.unsub(() => {
@@ -50,7 +50,7 @@ export default class LoadMore extends Component<Props, States> {
       getDataHandle(curPage + 1);
     }
   }
-  render() {
+  public render() {
     return <div className="line" ref={bottom => (this.contentBottom = bottom)}></div>;
   }
 }

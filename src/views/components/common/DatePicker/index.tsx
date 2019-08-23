@@ -17,7 +17,7 @@ export default class Index extends Component<Props, State> {
       endDay: '',
     };
   }
-  getDate = (startDay, endDay) => {
+  public getDate = (startDay, endDay) => {
     this.setState(
       prev => ({
         startDay: startDay || prev.startDay,
@@ -28,7 +28,7 @@ export default class Index extends Component<Props, State> {
       },
     );
   };
-  render() {
+  public render() {
     return (
       <div>
         <label htmlFor="start_time">

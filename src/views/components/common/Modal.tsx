@@ -9,18 +9,18 @@ interface Props {
 }
 interface State {}
 export default class Modal extends React.Component<Props, State> {
-  modalTarget: HTMLDivElement;
+  public modalTarget: HTMLDivElement;
   constructor(props) {
     super(props);
     this.modalTarget = document.createElement('div');
   }
-  componentDidMount() {
+  public componentDidMount() {
     document.body.appendChild(this.modalTarget);
   }
-  componentWillUnmount() {
+  public componentWillUnmount() {
     document.body.removeChild(this.modalTarget);
   }
-  renderFooter() {
+  public renderFooter() {
     return (
       <footer className="modal-card-foot">
         <button className="button is-success" onClick={() => this.props.pannelHandle(false)}>
@@ -32,7 +32,7 @@ export default class Modal extends React.Component<Props, State> {
       </footer>
     );
   }
-  render() {
+  public render() {
     const { title, footer } = this.props;
     return (
       this.props.render &&

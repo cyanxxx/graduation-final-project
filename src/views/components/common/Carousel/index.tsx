@@ -15,25 +15,25 @@ interface State {
 }
 
 export default class Carousel extends React.Component<Props, State> {
-  cloneData: JSX.Element[] = [];
-  width: number = 0;
-  maskWidth: number = 0;
-  interval!: number;
-  container: HTMLElement | null = null;
-  startX: number = 0;
-  endX: number = 0;
-  offset: number = 0;
-  drag: boolean = false;
-  atLeastDis: number = 30;
-  ani: boolean = false;
-  lastOffset: number = 0;
-  maskAble: boolean = false;
-  firstIndex: number = 0;
-  endIndex: number = 0;
-  resizeHandle: any;
-  visibleHandle: any;
-  hiddleHandle: any;
-  speed: number = 0;
+  public cloneData: JSX.Element[] = [];
+  public width: number = 0;
+  public maskWidth: number = 0;
+  public interval!: number;
+  public container: HTMLElement | null = null;
+  public startX: number = 0;
+  public endX: number = 0;
+  public offset: number = 0;
+  public drag: boolean = false;
+  public atLeastDis: number = 30;
+  public ani: boolean = false;
+  public lastOffset: number = 0;
+  public maskAble: boolean = false;
+  public firstIndex: number = 0;
+  public endIndex: number = 0;
+  public resizeHandle: any;
+  public visibleHandle: any;
+  public hiddleHandle: any;
+  public speed: number = 0;
   constructor(props: Props) {
     super(props);
     this.cloneData = props.data.slice(0);
@@ -42,7 +42,7 @@ export default class Carousel extends React.Component<Props, State> {
       step: step,
     };
   }
-  componentWillMount() {
+  public componentWillMount() {
     this.width = document.body.clientWidth;
     if (this.props.width && this.width - this.props.width > 0) {
       this.maskWidth = (this.width - this.props.width) / 2;
@@ -51,7 +51,7 @@ export default class Carousel extends React.Component<Props, State> {
     this.speed = 100;
     this.createData();
   }
-  createData() {
+  public createData() {
     const { data } = this.props;
     const { step } = this.state;
     if (this.maskAble) {
@@ -74,7 +74,7 @@ export default class Carousel extends React.Component<Props, State> {
       });
     }
   }
-  adjustLwayer() {
+  public adjustLwayer() {
     this.width = document.body.clientWidth;
     if (this.props.width && this.width - this.props.width > 0) {
       this.maskWidth = (this.width - this.props.width) / 2;
@@ -84,7 +84,7 @@ export default class Carousel extends React.Component<Props, State> {
     this.translateTo(this.getSlideOffset());
     this.forceUpdate();
   }
-  componentDidMount() {
+  public componentDidMount() {
     this.container!.style.transform =
       this.maskWidth > 0
         ? `translate3d(${this.maskWidth + this.props.width! * -this.state.step}px, 0, 0)`
@@ -105,14 +105,14 @@ export default class Carousel extends React.Component<Props, State> {
     this.visibleHandle = eventHandle(this.autoplay.bind(this));
     this.props.windowVisibleEvent.sub('open', this.visibleHandle);
   }
-  componentWillUnmount() {
+  public componentWillUnmount() {
     clearInterval(this.interval);
     this.container = null;
     this.props.windowResizeEvent.unsub(this.resizeHandle);
     this.props.windowVisibleEvent.unsub('hidden', this.hiddleHandle);
     this.props.windowVisibleEvent.unsub('open', this.visibleHandle);
   }
-  next = () => {
+  public next = () => {
     const { step } = this.state;
     if (step > this.endIndex) {
       this.toggleTransition(false);
@@ -145,7 +145,7 @@ export default class Carousel extends React.Component<Props, State> {
       this.slideTo(nextSlideOffset);
     }
   };
-  prev = () => {
+  public prev = () => {
     const { step } = this.state;
     if (step < this.firstIndex) {
       this.toggleTransition(false);
@@ -204,17 +204,17 @@ export default class Carousel extends React.Component<Props, State> {
     };
     requestAnimationFrame(step);
   }
-  autoplay = () => {
+  public autoplay = () => {
     this.clearAutoplay();
     this.interval = window.setInterval(() => {
       this.next();
     }, this.props.interval);
   };
-  clearAutoplay() {
+  public clearAutoplay() {
     this.interval && clearInterval(this.interval);
     this.interval = 0;
   }
-  handleDragStart = (start: number) => {
+  public handleDragStart = (start: number) => {
     this.startX = this.endX = start;
     this.offset =
       this.props.width && this.maskWidth
@@ -223,12 +223,12 @@ export default class Carousel extends React.Component<Props, State> {
     this.drag = true;
     this.toggleTransition(false);
   };
-  handleDrag = (end: number) => {
+  public handleDrag = (end: number) => {
     this.endX = end;
     const dt = end - this.startX;
     this.translateTo(dt + this.offset);
   };
-  handleDragEnd = () => {
+  public handleDragEnd = () => {
     this.toggleTransition(true);
     const dir = this.endX - this.startX;
     this.lastOffset += dir;
@@ -248,17 +248,17 @@ export default class Carousel extends React.Component<Props, State> {
     const width = this.props.width || this.width;
     return this.maskWidth ? -i * width + this.maskWidth : -i * width;
   }
-  translateTo = (dis: number) => {
+  public translateTo = (dis: number) => {
     this.container!.style.transform = `translate3d(${dis}px, 0, 0)`;
   };
-  toggleTransition(enable: boolean) {
+  public toggleTransition(enable: boolean) {
     if (enable) {
       this.container!.style.transition = `all ${this.props.speed}ms linear`;
     } else {
       this.container!.style.transition = `all 0ms`;
     }
   }
-  render() {
+  public render() {
     const { width, data } = this.props;
     const { step } = this.state;
 

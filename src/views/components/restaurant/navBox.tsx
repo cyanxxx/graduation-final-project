@@ -21,7 +21,7 @@ export default class NavBox extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  renderMenu() {
+  public renderMenu() {
     const { show, pannelHandle, sort, selectHandler } = this.props;
     return (
       <Modal render={show} pannelHandle={pannelHandle} title={'美食'}>
@@ -67,7 +67,7 @@ export default class NavBox extends Component<Props, State> {
       </Modal>
     );
   }
-  renderLocation() {
+  public renderLocation() {
     const { show, pannelHandle, location, selectHandler } = this.props;
     return (
       <Modal render={show} pannelHandle={pannelHandle} title={'地区'}>
@@ -112,7 +112,7 @@ export default class NavBox extends Component<Props, State> {
       </Modal>
     );
   }
-  render() {
+  public render() {
     const { filterSort } = this.props;
     console.log(imgs);
     return <div>{filterSort === filter.sort ? this.renderMenu() : this.renderLocation()}</div>;

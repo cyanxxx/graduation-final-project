@@ -19,8 +19,8 @@ export default class Create extends Component<componentProps, State> {
       end_date: '',
     };
   }
-  create = async () => {
-    let data = {};
+  public create = async () => {
+    const data = {};
     for (const key in this.state) {
       if (this.state[key]) {
         data[key] = this.state[key];
@@ -32,13 +32,13 @@ export default class Create extends Component<componentProps, State> {
     )) as APIPost['/trip/create']['res'];
     this.props.core.history.push('/trip/create', { id: result.id });
   };
-  getDate = (startDay, endDay) => {
+  public getDate = (startDay, endDay) => {
     this.setState({
       start_date: startDay,
       end_date: endDay,
     });
   };
-  render() {
+  public render() {
     if (!this.props.core.user.isLoggedIn()) {
       return (
         <Redirect to={{ pathname: ROUTE.login, state: { from: this.props.location } }}></Redirect>

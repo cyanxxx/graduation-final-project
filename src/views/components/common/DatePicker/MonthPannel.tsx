@@ -4,7 +4,7 @@ interface Props {
   choiceMonth: any;
 }
 function createMonth() {
-  let month: number[] = [];
+  const month: number[] = [];
   for (let i = 1; i <= 12; i++) {
     month.push(i);
   }

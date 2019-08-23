@@ -35,7 +35,7 @@ export default class App extends React.Component<Props, State> {
       return <LoadableComponent core={this.props.core}></LoadableComponent>;
     }
   }
-  render() {
+  public render() {
     return <Router history={this.props.core.history}>{this.renderApp()}</Router>;
   }
 }

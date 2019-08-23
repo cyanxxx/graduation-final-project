@@ -18,7 +18,7 @@ interface State {
 }
 
 export default class Notify extends Component<Props, State> {
-  height: number;
+  public height: number;
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -29,22 +29,22 @@ export default class Notify extends Component<Props, State> {
     };
     this.height = 0;
   }
-  componentWillMount() {
+  public componentWillMount() {
     console.log(window.innerHeight);
     this.height = window.innerHeight * 0.3;
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     const info = await this.props.core.db.get('/news', undefined);
     info ? this.setState({ newsData: info }) : null;
     const activity = await this.props.core.db.get('/activity', undefined);
     activity ? this.setState({ activityData: activity }) : null;
   }
-  handleStatus = (i: number) => {
+  public handleStatus = (i: number) => {
     this.setState({
       currentStatus: i,
     });
   };
-  render() {
+  public render() {
     const { titles, currentStatus, newsData, activityData } = this.state;
     return (
       <nav className="panel">

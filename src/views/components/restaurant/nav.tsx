@@ -26,12 +26,12 @@ export default class Nav extends React.Component<Props, States> {
     };
   }
 
-  pannelHandle = (action: boolean) => {
+  public pannelHandle = (action: boolean) => {
     this.setState(() => ({
       openPannel: action,
     }));
   };
-  render() {
+  public render() {
     const { filterSort, changeFilter } = this.props;
     const { openPannel } = this.state;
     return (

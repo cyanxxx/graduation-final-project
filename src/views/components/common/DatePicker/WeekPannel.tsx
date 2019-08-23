@@ -34,11 +34,11 @@ function getNextDay(lastMonthDate: Date) {
   return lastMonthDate.getDay();
 }
 function createDayArr(day: number) {
-  let dayArr: number[] = [];
-  let limitDay = 6;
+  const dayArr: number[] = [];
+  const limitDay = 6;
 
   if (day <= limitDay && day !== 0) {
-    let rest = Math.abs(limitDay + 1 - day); //3
+    const rest = Math.abs(limitDay + 1 - day); //3
     let i = 1;
     while (i <= rest) {
       dayArr.push(i);
@@ -48,11 +48,11 @@ function createDayArr(day: number) {
   return dayArr;
 }
 function createLastDayArr(day: number, totalDay: number) {
-  let dayArr: number[] = [];
+  const dayArr: number[] = [];
   let limitDay = 1,
     i = 1;
   if (day > limitDay) {
-    let rest = Math.abs(limitDay - day);
+    const rest = Math.abs(limitDay - day);
     let lastDay = totalDay;
     while (i <= rest) {
       dayArr.unshift(lastDay);
@@ -80,7 +80,7 @@ function renderDayDom(year: number, month: number, dayArr: day[], fn: any) {
   });
 }
 function renderDayArr(totalDay: number, params: any, mode: string) {
-  let dayArr: day[] = [];
+  const dayArr: day[] = [];
   var _stages: string[] = [];
 
   var stage = {
@@ -111,14 +111,14 @@ function renderDayArr(totalDay: number, params: any, mode: string) {
   };
   addStage();
   function addStage() {
-    let arr = mode.split('|');
+    const arr = mode.split('|');
     _stages.push(...arr);
   }
   function handleStage(i) {
     return _stages.reduce((prev, cur) => prev || stage[cur](i), DAY_STATUS.NORMAL);
   }
   for (let i = 1; i <= totalDay; i++) {
-    let item: day = {
+    const item: day = {
       val: i,
       status: handleStage(i),
     };

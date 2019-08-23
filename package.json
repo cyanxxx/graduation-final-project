@@ -8,7 +8,7 @@
     "start": "webpack-dev-server -d",
     "build": "webpack --env production",
     "server": "node ./server.js",
-    "lint": "tslint -c tslint.json --fix 'src/**/*.ts'",
+    "lint": "tslint -c tslint.json --fix 'src/**/*.ts' 'src/**/*.tsx'",
     "prettier": "prettier -c --write ./src/**"
   },
   "husky": {

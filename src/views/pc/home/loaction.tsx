@@ -13,7 +13,7 @@ export default class Loaction extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  render() {
+  public render() {
     const { titles, currentStatus, changeStatus } = this.props;
     return (
       <p className="panel-tabs">

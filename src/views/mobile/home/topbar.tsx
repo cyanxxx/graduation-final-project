@@ -11,7 +11,7 @@ export default class Topbar extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  render() {
+  public render() {
     return (
       <div
         className="pannel"

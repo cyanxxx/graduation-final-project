@@ -15,7 +15,7 @@ export default class Clock extends React.Component<Props, State> {
     super(props);
     this.state = { time: new Date(), reverse: false };
   }
-  timerID: any = null;
+  public timerID: any = null;
   public componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
   }

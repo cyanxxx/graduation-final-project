@@ -13,7 +13,7 @@ export default class PCRoute extends Component<componentProps, State> {
   constructor(props: componentProps) {
     super(props);
   }
-  render() {
+  public render() {
     const data = [
       <img src="http://www.welcome2japan.cn/assets/img/top/cover-01.png" alt="" />,
       <img src="http://www.welcome2japan.cn/assets/img/top/cover-02.jpg" alt="" />,

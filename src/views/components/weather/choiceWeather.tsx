@@ -26,11 +26,11 @@ export default class ChoiceWeather extends React.Component<Props, State> {
       cur_area: 'cur_location',
     };
   }
-  selectArea: any = (e: Event) => {
+  public selectArea: any = (e: Event) => {
     const target = e.target as HTMLElement;
     this.setState({ cur_area: target.getAttribute('data-name') as string });
   };
-  render() {
+  public render() {
     const city: json = {
       ...city_json,
       cur_location: {

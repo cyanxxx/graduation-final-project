@@ -7,7 +7,7 @@ export default class Weather extends Component<componentProps, State> {
   constructor(props: componentProps) {
     super(props);
   }
-  render() {
+  public render() {
     const core = this.props.core;
     return <CurrentWeather core={core} simple={false}></CurrentWeather>;
   }

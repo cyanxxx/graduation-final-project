@@ -12,7 +12,7 @@ export default class Search extends React.Component<Props, State> {
       value: '',
     };
   }
-  render() {
+  public render() {
     return (
       <form
         className="search"

@@ -9,7 +9,7 @@ interface Props {
   message: string;
 }
 export default function index(props: Props) {
-  let div = document.createElement('div');
+  const div = document.createElement('div');
   let box = document.getElementsByClassName('alert-box')[0];
   if (box) {
     box.appendChild(div);
@@ -38,6 +38,6 @@ export default function index(props: Props) {
   ReactDOM.render(alert, div);
 }
 index.prototype.close = function() {
-  let box = document.getElementsByClassName('alert-box')[0];
+  const box = document.getElementsByClassName('alert-box')[0];
   document.body.removeChild(box);
 };

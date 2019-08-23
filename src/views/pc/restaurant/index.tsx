@@ -14,7 +14,7 @@ export default class Restaurant extends Component<componentProps, State> {
   constructor(props: componentProps) {
     super(props);
   }
-  render() {
+  public render() {
     const core = this.props.core;
     return (
       <Card style={{ margin: '20px auto' }}>

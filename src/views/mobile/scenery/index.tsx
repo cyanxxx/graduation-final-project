@@ -7,7 +7,7 @@ export default class Index extends Component<componentProps, State> {
   constructor(props: componentProps) {
     super(props);
   }
-  render() {
+  public render() {
     return (
       <Card style={{ width: 1080, margin: '20px auto' }}>
         <Scenery core={this.props.core}></Scenery>

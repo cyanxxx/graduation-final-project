@@ -15,7 +15,7 @@ export default class index extends Component<componentProps, State> {
   constructor(props: componentProps) {
     super(props);
   }
-  render() {
+  public render() {
     const data = [
       <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-01.png" alt="" />,
       <img src="http://www.welcome2japan.cn/mobile/assets/img/top/cover-02.png" alt="" />,

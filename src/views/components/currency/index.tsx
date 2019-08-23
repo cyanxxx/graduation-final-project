@@ -17,11 +17,11 @@ export default class Currency extends React.Component<Props, State> {
       },
     };
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     const currency = await this.props.core.db.get(`/currency`, undefined);
     currency ? this.setState({ data: currency }) : null;
   }
-  render() {
+  public render() {
     return <div>当前汇率：{this.state.data!.exchangeRate}</div>;
   }
 }

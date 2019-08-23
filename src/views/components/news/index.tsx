@@ -14,7 +14,7 @@ export default class News extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  renderNews() {
+  public renderNews() {
     return (
       <div>
         <div className="panel-block">
@@ -40,7 +40,7 @@ export default class News extends Component<Props, State> {
       </div>
     );
   }
-  renderActivity() {
+  public renderActivity() {
     return (
       <div>
         <div className="panel-block">
@@ -73,7 +73,7 @@ export default class News extends Component<Props, State> {
     );
   }
 
-  render() {
+  public render() {
     const { status } = this.props;
     const content = status === STATUS.NEWS ? this.renderNews() : this.renderActivity();
     return <div style={{ overflowY: 'auto', maxHeight: '30vh' }}>{content}</div>;

@@ -10,7 +10,7 @@ interface Props {
 }
 interface State {}
 export default class Slider extends Component<Props, State> {
-  render() {
+  public render() {
     return (
       <div className="slider_wrapper">
         <h3>{this.props.title}</h3>

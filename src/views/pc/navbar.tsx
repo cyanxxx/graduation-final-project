@@ -30,9 +30,9 @@ export class Navbar extends React.Component<Props, State> {
       container: '',
     };
   }
-  handleChange = (ev, value) => {};
+  public handleChange = (ev, value) => {};
 
-  renderLinks = (spec: LinkSpec, i: number) => {
+  public renderLinks = (spec: LinkSpec, i: number) => {
     //todo: find icons here
     return (
       <Link
@@ -48,7 +48,7 @@ export class Navbar extends React.Component<Props, State> {
       </Link>
     );
   };
-  renderVisitor() {
+  public renderVisitor() {
     return (
       <div className="navbar-item">
         <div
@@ -99,10 +99,10 @@ export class Navbar extends React.Component<Props, State> {
       </div>
     );
   }
-  handleRender = () => {
+  public handleRender = () => {
     this.setState(prev => ({ render: !prev.render }));
   };
-  renderUser() {
+  public renderUser() {
     return (
       <div className="navbar-item has-dropdown is-hoverable">
         <div className="navbar-link" onClick={() => this.props.core.history.push(ROUTE.users)}>
@@ -122,10 +122,10 @@ export class Navbar extends React.Component<Props, State> {
       </div>
     );
   }
-  menuHandle = () => {
+  public menuHandle = () => {
     this.setState(prevState => ({ menuOpen: !prevState.menuOpen }));
   };
-  render = () => {
+  public render = () => {
     return (
       <nav
         style={Object.assign(

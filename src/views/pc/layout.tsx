@@ -4,7 +4,7 @@ interface Props {
 }
 interface State {}
 export class Layout extends Component<Props, State> {
-  render() {
+  public render() {
     return (
       <div
         style={{

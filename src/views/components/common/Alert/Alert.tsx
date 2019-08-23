@@ -11,42 +11,42 @@ interface State {
   render: boolean;
 }
 export default class Alert extends Component<Props, State> {
-  static defaultProps = {
+  public static defaultProps = {
     type: 'danger',
     duration: 3000,
   };
-  timeout!: number;
+  public timeout!: number;
   constructor(props: Props) {
     super(props);
     this.state = {
       render: false,
     };
   }
-  componentDidMount() {
+  public componentDidMount() {
     this.setState({
       render: true,
     });
     this.startTimer();
   }
-  startTimer() {
+  public startTimer() {
     this.timeout = window.setTimeout(() => {
       this.onClose();
     }, this.props.duration);
   }
-  onClose = () => {
+  public onClose = () => {
     this.stopTimer();
     this.setState({
       render: false,
     });
     this.props.willUnmount();
   };
-  stopTimer() {
+  public stopTimer() {
     window.clearTimeout(this.timeout);
   }
-  componentWillUnmount() {
+  public componentWillUnmount() {
     this.stopTimer();
   }
-  render() {
+  public render() {
     return (
       this.state.render && (
         <div className={`notification  ${'is-' + this.props.type}`}>

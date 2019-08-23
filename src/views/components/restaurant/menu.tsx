@@ -40,7 +40,7 @@ type category = {
   name: string;
 };
 export default class Menu extends Component<Props, States> {
-  loading: boolean;
+  public loading: boolean;
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -60,9 +60,11 @@ export default class Menu extends Component<Props, States> {
     this.loading = false;
   }
 
-  async getNewData(p?: number, category?: category) {
+  public async getNewData(p?: number, category?: category) {
     const { page, canNext } = this.state;
-    if ((p && p === page) || (p === page + 1 && !canNext)) return;
+    if ((p && p === page) || (p === page + 1 && !canNext)) {
+      return;
+    }
     if (!this.loading) {
       this.loading = true;
       const query = (category && category.id) || this.state.category.id;
@@ -81,7 +83,7 @@ export default class Menu extends Component<Props, States> {
       return;
     }
   }
-  async getSortData() {
+  public async getSortData() {
     const data = (await this.props.core.db.get(
       '/restaurant/sort',
       undefined,
@@ -90,7 +92,7 @@ export default class Menu extends Component<Props, States> {
       sort: data,
     });
   }
-  async getLocationData() {
+  public async getLocationData() {
     const data = (await this.props.core.db.get(
       '/restaurant/location',
       undefined,
@@ -99,7 +101,7 @@ export default class Menu extends Component<Props, States> {
       location: data,
     });
   }
-  async componentDidMount() {
+  public async componentDidMount() {
     this.getSortData();
     this.getLocationData();
     const data = (await this.getNewData()) as APIGet['/restaurant/list']['res'];
@@ -108,16 +110,16 @@ export default class Menu extends Component<Props, States> {
     });
     preload();
   }
-  dataConcat = async nextPage => {
-    let newData = (await this.getNewData(nextPage)) as APIGet['/restaurant/list']['res'];
+  public dataConcat = async nextPage => {
+    const newData = (await this.getNewData(nextPage)) as APIGet['/restaurant/list']['res'];
     this.setState(preState => ({
       data: preState.data.concat(newData.results),
       page: nextPage,
     }));
     preload();
   };
-  dataRefresh = async nextPage => {
-    let newData = await this.getNewData(nextPage);
+  public dataRefresh = async nextPage => {
+    const newData = await this.getNewData(nextPage);
     if (newData) {
       this.setState({
         data: newData.results,
@@ -126,12 +128,12 @@ export default class Menu extends Component<Props, States> {
     }
     preload();
   };
-  filterHandle = choiceFilter => {
+  public filterHandle = choiceFilter => {
     this.setState({
       filter: choiceFilter,
     });
   };
-  changeCategory = async (id, name) => {
+  public changeCategory = async (id, name) => {
     const category = {
       id: id,
       name: name,
@@ -142,7 +144,7 @@ export default class Menu extends Component<Props, States> {
       data: data.results,
     });
   };
-  searchHandle = async value => {
+  public searchHandle = async value => {
     const data = await this.props.core.db.get('/restaurant/list', {
       search: value,
     });
@@ -154,7 +156,7 @@ export default class Menu extends Component<Props, States> {
       });
     }
   };
-  render() {
+  public render() {
     const { Item } = this.props;
     const { data, sort, filter, location, page, totalPage } = this.state;
     return (

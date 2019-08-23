@@ -6,9 +6,11 @@ interface Props {
 }
 export default function Page(props: Props) {
   const { totalPage, curPage } = props;
-  let arr: number[] = [];
+  const arr: number[] = [];
   for (let i = curPage - 2; i <= curPage + 2 && i < totalPage; i++) {
-    if (i < 2) continue;
+    if (i < 2) {
+      continue;
+    }
     arr.push(i);
   }
   return (
@@ -33,7 +35,9 @@ export default function Page(props: Props) {
         className="pagination-list"
         onClick={e => {
           const target = e.target as HTMLElement;
-          if (target.className.indexOf('pagination-ellipsis') !== -1) return;
+          if (target.className.indexOf('pagination-ellipsis') !== -1) {
+            return;
+          }
           const page = parseInt(target.textContent!);
           console.log(page);
           props.pageHandle(page);
