@@ -15,10 +15,22 @@ export default class PCRoute extends Component<componentProps, State> {
   }
   public render() {
     const data = [
-      <img src="http://www.welcome2japan.cn/assets/img/top/cover-01.png" alt="" />,
-      <img src="http://www.welcome2japan.cn/assets/img/top/cover-02.jpg" alt="" />,
-      <img src="http://www.welcome2japan.cn/assets/img/top/cover-08.jpg" alt="" />,
-      <img src="http://www.welcome2japan.cn/assets/img/top/cover-09.jpg" alt="" />,
+      <img
+        src="https://www.japan-travel.cn/assets_c/2021/10/b5fee5f73fafd3070a8b15506ef3440aa85a55be-thumb-1640x1050-21140.jpg"
+        alt=""
+      />,
+      <img
+        src="https://www.japan-travel.cn/assets_c/2020/03/food-thumb-1640x1050-19207.jpg"
+        alt=""
+      />,
+      <img
+        src="https://www.japan-travel.cn/assets_c/2021/06/img_covid_top_agalhe_kv-thumb-1640x1050-20982.jpg"
+        alt=""
+      />,
+      <img
+        src="https://www.japan-travel.cn/assets_c/2020/03/kyoiku-thumb-1640x1050-19754.jpg"
+        alt=""
+      />,
     ];
     const core = this.props.core;
     return (
