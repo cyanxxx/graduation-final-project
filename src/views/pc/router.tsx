@@ -78,7 +78,6 @@ export default class PCRouter extends Component<Props, State> {
               }
             />
           ))}
-          )}
         </Switch>
       </div>
     );

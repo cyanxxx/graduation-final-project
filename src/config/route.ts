@@ -13,7 +13,9 @@ export const ROUTE = {
 };
 import { Core } from '../core';
 import { RouteComponentProps } from 'react-router-dom';
-export interface componentProps extends RouteComponentProps {
+
+//  TODO: need review
+export interface componentProps extends RouteComponentProps<any, any, any> {
   core: Core;
 }
 export interface PCroute {

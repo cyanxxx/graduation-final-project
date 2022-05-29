@@ -1,8 +1,7 @@
 import { DB } from './db';
 import { EventFactory } from '../utils/event';
 import { debounce } from '../utils/debounce';
-import { createBrowserHistory } from 'history';
-import { History } from 'history';
+import { createBrowserHistory, History } from 'history';
 import { User } from './user';
 export class Core {
   public db: DB;
