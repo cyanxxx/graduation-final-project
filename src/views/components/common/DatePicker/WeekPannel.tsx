@@ -20,7 +20,8 @@ interface day {
   val: number;
   status: DAY_STATUS;
 }
-function getTotalDay(lastMonthDate: Date, month: number) {
+function getTotalDay(tmp: Date, month: number) {
+  const lastMonthDate = new Date(tmp.valueOf());
   lastMonthDate.setMonth(month + 1);
   lastMonthDate.setDate(0);
   const totalDay = lastMonthDate.getDate();
@@ -47,10 +48,14 @@ function createDayArr(day: number) {
   }
   return dayArr;
 }
+//day: 这个月的1号星期几，totalDay上个月的总天数
 function createLastDayArr(day: number, totalDay: number) {
   const dayArr: number[] = [];
   let limitDay = 1,
     i = 1;
+  if (day < limitDay) {
+    day = 7;
+  }
   if (day > limitDay) {
     const rest = Math.abs(limitDay - day);
     let lastDay = totalDay;
@@ -183,10 +188,15 @@ export default function WeekhPannel({
   tmpDate.setFullYear(cur_year);
   tmpDate.setMonth(cur_month);
   const totalDay = getTotalDay(tmpDate, cur_month); //  这个月的总天数
-
-  const nextDay: number[] = createDayArr(getNextDay(tmpDate));
+  const endOfMonthDate = new Date(tmpDate.valueOf());
+  endOfMonthDate.setMonth(cur_month + 1);
+  endOfMonthDate.setDate(0);
+  //  最后一天是周几
+  const nextDay: number[] = createDayArr(getNextDay(endOfMonthDate));
   const lastDay: number[] = createLastDayArr(
+    //  第一天周几
     getLastDay(tmpDate),
+    // 上一个月最后一天周几
     getTotalDay(tmpDate, cur_month - 1),
   );
 
